@@ -1,0 +1,129 @@
+# ============================================
+# NenaSasa and mini apps Landing Pages - .gitignore
+# This file tells Git which files to ignore
+# ============================================
+
+# ============================================
+# Node.js & Package Managers
+# ============================================
+node_modules/
+npm-debug.log
+npm-debug.log.*
+package-lock.json
+yarn.lock
+yarn-error.log
+pnpm-lock.yaml
+.npm
+
+# ============================================
+# Environment & Secrets (DO NOT COMMIT!)
+# ============================================
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+secrets.json
+credentials.json
+.github_token
+api_keys.json
+
+# ============================================
+# IDE & Editor Files
+# ============================================
+.vscode/
+.vscode/*
+*.code-workspace
+.idea/
+.idea/*
+*.iml
+*.swp
+*.swo
+*~
+.*.swp
+.DS_Store
+
+# ============================================
+# Build & Distribution
+# ============================================
+dist/
+build/
+out/
+*.bundle.js
+*.min.js
+*.min.css
+
+# ============================================
+# Operating System Files
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.directory
+
+# ============================================
+# Temporary & Cache Files
+# ============================================
+temp/
+tmp/
+.cache/
+*.cache
+*.bak
+*.backup
+*.tmp
+*.orig
+
+# ============================================
+# Logs
+# ============================================
+*.log
+logs/
+logs/*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ============================================
+# Testing
+# ============================================
+coverage/
+test-results/
+.coverage
+.nyc_output/
+
+# ============================================
+# Project Specific
+# ============================================
+local-config.js
+config.local.js
+.local/
+
+# ============================================
+# Archive Files
+# ============================================
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+
+# ============================================
+# Keep These (DO NOT IGNORE)
+# ============================================
+# These files should be committed:
+# .gitignore (this file)
+# README.md
+# LICENSE
+# index.html
+# package.json
+# All source code
+# All images in public/images/

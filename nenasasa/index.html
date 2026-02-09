@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NenaSasa - Unified Customer Engagement Platform</title>
+  
+  <!-- Importing Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;600&family=Rubik:wght@400&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* ============================================
+       DESIGN SYSTEM - ROOT VARIABLES
+       ============================================ */
+    :root {
+      /* PRIMARY COLORS */
+      --primary-blue: #001c9e;
+      --primary-red: #e23161;
+      --primary-orange: #ee7d1f;
+      
+      /* TEXT COLORS */
+      --text-dark: #001c9e;
+      --text-body: #3f5896;
+      --text-light: #ffffff;
+      
+      /* BACKGROUND COLORS */
+      --bg-light: #f3f3f3;
+      --bg-white: #ffffff;
+      --bg-dark-blue: #282460;
+      
+      /* SHADOWS */
+      --shadow-card: 0px 19px 30px 0px rgba(63, 88, 150, 0.04);
+      
+      /* SPACING */
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-2xl: 48px;
+      --spacing-3xl: 64px;
+      --spacing-4xl: 80px;
+      --spacing-5xl: 128px;
+      
+      /* BORDER RADIUS */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 15px;
+      --radius-xl: 20px;
+      --radius-2xl: 24px;
+      --radius-3xl: 30px;
+      
+      /* TYPOGRAPHY */
+      --font-size-xs: 12px;
+      --font-size-sm: 14px;
+      --font-size-base: 16px;
+      --font-size-lg: 18px;
+      --font-size-xl: 20px;
+      --font-size-2xl: 24px;
+      --font-size-3xl: 30px;
+      --font-size-4xl: 36px;
+      --font-size-5xl: 48px;
+      --font-size-6xl: 60px;
+      
+      --font-weight-light: 300;
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      --font-weight-extrabold: 800;
+      
+      /* CONTAINER */
+      --container-width: 1400px;
+      --container-padding: 20px;
+    }
+
+    /* ============================================
+       CUSTOM TAILWIND UTILITY CLASSES
+       ============================================ */
+    
+    /* GRADIENTS */
+    .gradient-hero {
+      background: linear-gradient(91.65deg, #d03683 0%, #ee7d1f 95.5%);
+    }
+
+    /* SHADOWS */
+    .shadow-card {
+      box-shadow: var(--shadow-card);
+    }
+
+    /* TEXT COLOR UTILITIES */
+    .text-dark {
+      color: var(--text-dark);
+    }
+
+    .text-body {
+      color: var(--text-body);
+    }
+
+    .text-light {
+      color: var(--text-light);
+    }
+
+    /* HIGHLIGHT COLORS */
+    .highlight-red {
+      color: var(--primary-red);
+    }
+
+    .highlight-blue {
+      color: var(--primary-blue);
+    }
+
+    .highlight-orange {
+      color: var(--primary-orange);
+    }
+
+    /* BACKGROUND UTILITIES */
+    .bg-dark-blue {
+      background-color: var(--bg-dark-blue);
+    }
+
+    /* ============================================
+       BASE STYLES & RESET
+       ============================================ */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-body);
+      line-height: 1.6;
+      font-size: var(--font-size-base);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, textarea, select {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ============================================
+       TYPOGRAPHY UTILITIES
+       ============================================ */
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: var(--font-weight-bold);
+      line-height: 1.2;
+    }
+
+    p {
+      line-height: 1.8;
+    }
+
+    /* ============================================
+       SMOOTH TRANSITIONS
+       ============================================ */
+    
+    * {
+      transition: all 0.3s ease;
+    }
+
+    .no-transition {
+      transition: none !important;
+    }
+
+    /* ============================================
+       ACCESSIBILITY
+       ============================================ */
+    
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Focus states for keyboard navigation */
+    a:focus, button:focus, input:focus, textarea:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="font-[Inter] bg-gray-100">
+
+  <!-- ============================================
+       NAVBAR / HEADER
+       ============================================ -->
+  <header class="fixed top-0 left-0 right-0 z-50  bg-transparent">
+    <div class="max-w-[1400px] mx-auto px-5">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="#" class="flex items-center">
+            <img src="/images/nena-sasa-background-white-21.png" alt="NenaSasa Logo" class="h-10">
+          </a>
+        </div>
+        
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex gap-8">
+          <a href="#" class="text-white font-semibold flex items-center gap-2 hover:opacity-80 transition">
+            NenaSasa products 
+            <img src="/images/chevron-down0.svg" alt="dropdown" class="w-4 h-4">
+          </a>
+          <a href="#" class="text-white font-semibold flex items-center gap-2 hover:opacity-80 transition">
+            Industries 
+            <img src="/images/chevron-down1.svg" alt="dropdown" class="w-4 h-4">
+          </a>
+        </nav>
+        
+        <!-- Desktop Action Buttons -->
+        <div class="hidden md:flex gap-6 items-center">
+          <a href="#" class="text-white font-semibold hover:opacity-80 transition">Download app</a>
+          <a href="#" class="text-white font-semibold hover:opacity-80 transition">Log in</a>
+          <a href="#" class="gradient-hero text-white font-semibold py-2 px-6 rounded-lg hover:opacity-90 transition shadow-lg">Sign In</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-white text-2xl hover:opacity-80 transition">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="bg-cover bg-center pt-40 pb-32 text-white rounded-b-[150px] bg-[#2c0064] relative overflow-hidden" style="background-image: url('/images/Background.svg');">
+    <div class="max-w-[1400px] mx-auto px-5 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Hero Title -->
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
+          One Platform for  <br>
+          Smarter Customer Engagement
+        </h1>
+        
+        <!-- Hero Subtitle -->
+        <p class="text-lg md:text-xl opacity-90 mb-10 max-w-3xl mx-auto">
+          Bring all your customer conversations together across voice, chat, SMS, and intelligent automation — delivered through a single, integrated platform built for real-world operations.
+        </p>
+        
+        <!-- CTA Button -->
+        <a href="#" class="inline-block gradient-hero text-white font-semibold py-3 px-8 rounded-lg hover:opacity-90 transition shadow-lg mb-12">
+          Get Started
+        </a>
+        
+        <!-- Dashboard Preview -->
+        <div class="relative">
+          <img src="/images/select-mini-app-20.png" alt="NenaSasa Dashboard Preview" class="rounded-lg shadow-2xl w-full max-w-4xl mx-auto">
+          
+          <!-- Decorative Artwork -->
+          <img src="/images/untitled-design-45-10.png" alt="decorative artwork" class="absolute -left-16 -bottom-32 w-64 opacity-90 hidden lg:block">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MINI APPS STRIP
+       ============================================ -->
+  <section class="py-20 text-center bg-gray-100">
+    <div class="max-w-[1400px] mx-auto px-5">
+      <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-12">NenaSasa Mini-Apps</h2>
+      
+      <div class="flex flex-wrap justify-center gap-3">
+        <!-- NenaCall -->
+        <div class="bg-gradient-to-r from-red-500 to-orange-500 p-[2px] rounded-lg">
+          <div class="bg-white rounded-lg px-6 py-4 flex items-center justify-center min-w-[140px] h-14">
+            <img src="/images/nenacall-logo-6-30.png" alt="NenaCall" class="h-8">
+          </div>
+        </div>
+        
+        <!-- NenaVoice -->
+        <div class="bg-gradient-to-r from-red-500 to-orange-500 p-[2px] rounded-lg">
+          <div class="bg-white rounded-lg px-6 py-4 flex items-center justify-center min-w-[140px] h-14">
+            <img src="/images/nenavoice-logo-20.png" alt="NenaVoice" class="h-8">
+          </div>
+        </div>
+        
+        <!-- NenaSMS -->
+        <div class="bg-gradient-to-r from-red-500 to-orange-500 p-[2px] rounded-lg">
+          <div class="bg-white rounded-lg px-6 py-4 flex items-center justify-center min-w-[140px] h-14">
+            <img src="/images/nena-sms-logo-10.png" alt="NenaSMS" class="h-8">
+          </div>
+        </div>
+        
+        <!-- NenaChat -->
+        <div class="bg-gradient-to-r from-red-500 to-orange-500 p-[2px] rounded-lg">
+          <div class="bg-white rounded-lg px-6 py-4 flex items-center justify-center min-w-[140px] h-14">
+            <img src="/images/nena-chat-logo-10.png" alt="NenaChat" class="h-8">
+          </div>
+        </div>
+        
+        <!-- NenaMail -->
+        <div class="bg-gradient-to-r from-red-500 to-orange-500 p-[2px] rounded-lg">
+          <div class="bg-white rounded-lg px-6 py-4 flex items-center justify-center min-w-[140px] h-14">
+            <img src="/images/nena-mail-logo-10.png" alt="NenaMail" class="h-8">
+          </div>
+        </div>
+        
+        <!-- NenaSDK -->
+        <div class="bg-gradient-to-r from-red-500 to-orange-500 p-[2px] rounded-lg">
+          <div class="bg-white rounded-lg px-6 py-4 flex items-center justify-center min-w-[140px] h-14">
+            <img src="/images/nena-sdk-logo-10.png" alt="NenaSDK" class="h-8">
+          </div>
+        </div>
+        
+        <!-- NenaBot -->
+        <div class="bg-gradient-to-r from-red-500 to-orange-500 p-[2px] rounded-lg">
+          <div class="bg-white rounded-lg px-6 py-4 flex items-center justify-center min-w-[140px] h-14">
+            <img src="/images/nenabot-logo-11.png" alt="NenaBot" class="h-8">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHAT IS / WHY SECTIONS
+       ============================================ -->
+  <section class="py-20">
+    <div class="max-w-[1400px] mx-auto px-5">
+      <!-- What Is Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+        <div>
+          <img src="/images/untitled-design-38-10.png" alt="What is NenaSasa" class="rounded-lg shadow-card">
+        </div>
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">What Is NenaSasa</h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            NenaSasa is a unified customer engagement and communications platform designed for businesses that operate across voice and messaging channels.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Instead of managing disconnected tools for calls, chat, automation, and messaging, NenaSasa provides a single platform to run customer interactions end to end — from automated self-service to human-assisted support and system-level integrations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Why Row -->
+      <div class="grid grid-cols-1 gap-12 items-center">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-6">Why NenaSasa</h2>
+          <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            Customer communication today is fragmented across channels, teams, and tools. This leads to operational inefficiencies, inconsistent customer experiences, and limited visibility.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            NenaSasa eliminates this fragmentation by unifying execution, automation, oversight, and integration into one modular platform — allowing businesses to scale customer engagement without increasing complexity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FEATURE BLOCKS
+       ============================================ -->
+  <div class="max-w-[1400px] mx-auto px-5 pb-20">
+    
+    <!-- Feature 1: NenaCall -->
+    <div class="bg-white rounded-[15px] p-8 md:p-12 shadow-card border border-gray-200 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <span class="highlight-red">NenaCall:</span><br>
+            <span class="highlight-blue">Lightweight Voice & Chat for Frontline Teams</span>
+          </h3>
+          <p class="text-lg text-gray-700 mb-8">A fast, agent-facing application for handling voice calls and chat conversations from a single interface.</p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+              <span class="text-lg">Unified voice and chat workspace</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+              <span class="text-lg">Inbound and outbound calling</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+              <span class="text-lg">Real-time chat handling</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+              <span class="text-lg">Centralized conversation history</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">5</div>
+              <span class="text-lg">Quick deployment with minimal setup</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <img src="/images/talking-simulation-10.png" alt="NenaCall Simulation" class="rounded-[12px] shadow-card w-full">
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2: NenaVoice -->
+    <div class="bg-white rounded-[15px] p-8 md:p-12 shadow-card border border-gray-200 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <span class="highlight-red">NenaVoice</span><br>
+            <span class="highlight-blue">Voice Operations & Performance Management</span>
+          </h3>
+          <p class="text-lg text-gray-700 mb-8">The administrative and intelligence layer that provides visibility and control over voice and chat operations.</p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+              <span class="text-lg">Agent monitoring and availability tracking</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+              <span class="text-lg">Performance metrics and operational insights</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+              <span class="text-lg">Call and conversation oversight</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+              <span class="text-lg">Analytics for workforce planning and optimization</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <img src="/images/nenavoice-dashboard-10.png" alt="NenaVoice Dashboard" class="rounded-[12px] shadow-card w-full">
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 3: NenaBot -->
+    <div class="bg-white rounded-[15px] p-8 md:p-12 shadow-card border border-gray-200 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="order-last md:order-first">
+          <img src="/images/screenshot-2026-01-21-111627-10.png" alt="NenaBot Logic" class="rounded-[12px] shadow-card w-full">
+        </div>
+        
+        <div class="order-first md:order-last">
+          <h3 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <span class="highlight-red">NenaBot</span><br>
+            <span class="highlight-blue">AI-Powered Conversational Automation</span>
+          </h3>
+          <p class="text-lg text-gray-700 mb-8">An intelligent automation layer designed to handle repetitive, high-volume customer interactions across chat channels.</p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+              <span class="text-lg">Automated handling of routine customer requests</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+              <span class="text-lg">Structured data capture at the start of conversations</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+              <span class="text-lg">Intelligent escalation to human teams when required</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+              <span class="text-lg">24/7 self-service without increasing support costs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 4: NenaSMS -->
+    <div class="bg-white rounded-[15px] p-8 md:p-12 shadow-card border border-gray-200 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <span class="highlight-red">NenaSMS</span><br>
+            <span class="highlight-blue">Reliable SMS Messaging</span>
+          </h3>
+          <p class="text-lg text-gray-700 mb-8">A high-performance SMS solution for transactional and campaign-based communication.</p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+              <span class="text-lg">Alerts, notifications, and OTPs</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+              <span class="text-lg">Promotional and engagement messaging</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+              <span class="text-lg">Scheduled and automated delivery</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+              <span class="text-lg">Delivery status visibility</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <img src="/images/image-170.png" alt="SMS Dashboard" class="rounded-[12px] shadow-card w-full">
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 5: NenaSDK -->
+    <div class="bg-white rounded-[15px] p-8 md:p-12 shadow-card border border-gray-200 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="order-last md:order-first">
+          <img src="/images/image-130.png" alt="SDK Code" class="rounded-[12px] shadow-card w-full">
+        </div>
+        
+        <div class="order-first md:order-last">
+          <h3 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <span class="highlight-red">NenaSDK</span><br>
+            <span class="highlight-blue">Developer-Friendly Integration</span>
+          </h3>
+          <p class="text-lg text-gray-700 mb-8">Embed all communication capabilities into products and workflows via NenaSDK.</p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+              <span class="text-lg">Automated handling of routine customer requests</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+              <span class="text-lg">Structured data capture</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+              <span class="text-lg">Intelligent escalation</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+              <span class="text-lg">24/7 self-service</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 6: NenaChat -->
+    <div class="bg-white rounded-[15px] p-8 md:p-12 shadow-card border border-gray-200 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            <span class="highlight-red">NenaChat</span><br>
+            <span class="highlight-blue">AI-Powered Chat at Scale</span>
+          </h3>
+          <p class="text-lg text-gray-700 mb-8">A smart chat platform that combines automation and human support to deliver fast, consistent customer conversations.</p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+              <span class="text-lg">AI-assisted chat handling for common inquiries</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+              <span class="text-lg">Seamless handoff to live agents</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+              <span class="text-lg">Centralized conversation management</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+              <span class="text-lg">Scalable operations for growing chat volumes</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <img src="/images/image-100.png" alt="Chat Interface" class="rounded-[12px] shadow-card w-full">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       HOW IT WORKS TOGETHER
+       ============================================ -->
+  <section class="bg-[#282460] text-white py-32 rounded-b-[10px] md:rounded-b-[150px] mb-12" style="background-image: url('/images/Background2.svg'); background-size: cover; background-position: center;">
+    <div class="max-w-[1400px] mx-auto px-5 relative z-10">
+      <!-- Section Header -->
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">How It All Works Together</h2>
+        <p class="text-xl opacity-90">NenaSasa is modular by design, but unified in operation.</p>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Card 1: NenaCall -->
+        <div class="bg-white border border-white/20 rounded-3xl p-8 backdrop-blur">
+          <img src="/images/nenacall-logo-10.png" alt="NenaCall" class="h-10 mb-5">
+          <p class="text-lg text-[#3F5896] leading-relaxed ">Use NenaCall for frontline agent execution.</p>
+        </div>
+
+        <!-- Card 2: NenaVoice -->
+        <div class="bg-white border border-white/20 rounded-3xl p-8 backdrop-blur">
+          <img src="/images/nenavoice-logo-21.png" alt="NenaVoice" class="h-10 mb-5">
+          <p class="text-lg text-[#3F5896] leading-relaxed">Manage teams and performance with NenaVoice.</p>
+        </div>
+
+        <!-- Card 3: NenaChat -->
+        <div class="bg-white border border-white/20 rounded-3xl p-8 backdrop-blur">
+          <img src="/images/nena-chat-logo-12.png" alt="NenaChat" class="h-10 mb-5">
+          <p class="text-lg text-[#3F5896] leading-relaxed">Engage customers through live and AI-assisted chat using NenaChat.</p>
+        </div>
+
+        <!-- Card 4: NenaBot -->
+        <div class="bg-white border border-white/20 rounded-3xl p-8 backdrop-blur">
+          <img src="/images/nenabot-logo-12.png" alt="NenaBot" class="h-10 mb-5">
+          <p class="text-lg text-[#3F5896] leading-relaxed">Automate high-volume, repetitive interactions with NenaBot.</p>
+        </div>
+
+        <!-- Card 5: NenaSMS -->
+        <div class="bg-white border border-white/20 rounded-3xl p-8 backdrop-blur">
+          <img src="/images/nena-sms-logo-12.png" alt="NenaSMS" class="h-10 mb-5">
+          <p class="text-lg text-[#3F5896] leading-relaxed">Reach customers instantly with NenaSMS.</p>
+        </div>
+
+        <!-- Card 6: NenaSDK -->
+        <div class="bg-white border border-white/20 rounded-3xl p-8 backdrop-blur">
+          <img src="/images/nena-sdk-logo-12.png" alt="NenaSDK" class="h-10 mb-5">
+          <p class="text-lg text-[#3F5896] leading-relaxed">Embed all communication capabilities into products and workflows via NenaSDK.</p>
+        </div>
+      </div>
+
+      <!-- Bottom Text -->
+      <div class="text-center">
+        <p class="text-lg">All interactions operate within one platform architecture, enabling consistent customer experiences and centralized operational visibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHO IS FOR / IMPACT SECTION
+       ============================================ -->
+  <div class="max-w-[1400px] mx-auto px-5">
+    <div class="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-card -mt-24 relative z-10 bg-white">
+      <!-- Red Column: Who Is For -->
+      <div class="bg-red-500 text-white p-12 md:p-16 flex-1">
+        <h3 class="text-3xl font-bold mb-8">Who Nenasasa is For</h3>
+        <ul class="space-y-4">
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Faster response times across channels</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Reduced operational complexity</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Improved agent productivity and accountability</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Consistent customer experiences across voice and messaging</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Scalable engagement without proportional cost increases</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- White Column: Business Impact -->
+      <div class="bg-white text-gray-800 p-12 md:p-16 flex-1">
+        <h3 class="text-3xl font-bold mb-8 text-gray-800">Business Impact</h3>
+        <ul class="space-y-4">
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Small and growing businesses</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Customer support and service teams</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Sales and outbound teams</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>CX and call center operations</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>SaaS platforms and developers</span>
+          </li>
+          <li class="text-lg flex items-start gap-3">
+            <span class="font-bold text-xl flex-shrink-0">•</span>
+            <span>Large organizations running communication-heavy workflows</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       PRICING SECTION
+       ============================================ -->
+  <div class="max-w-[1400px] mx-auto px-5 py-20">
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-blue-900 mb-16">Choose your Plan</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <!-- Free Plan -->
+      <div class="bg-white rounded-lg p-8 shadow-card border border-gray-200 flex flex-col">
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Free</h3>
+        <p class="text-gray-600 mb-6 text-sm">Evaluation</p>
+        <div class="text-3xl font-bold text-gray-900 mb-6">$0</div>
+        <a href="#" class="w-full text-center bg-blue-900 text-white py-3 rounded-md font-semibold hover:opacity-90 transition mt-auto">Get started</a>
+      </div>
+      
+      <!-- Starter Plan (Highlighted) -->
+      <div class="bg-red-500 text-white rounded-lg p-8 shadow-card transform scale-105 border-none flex flex-col">
+        <h3 class="text-2xl font-bold mb-2">Starter plan</h3>
+        <p class="text-white/80 mb-6 text-sm">Small businesses</p>
+        <div class="text-3xl font-bold mb-6">$19</div>
+        <a href="#" class="w-full text-center bg-white text-red-500 py-3 rounded-md font-semibold hover:bg-gray-100 transition mt-auto">Get started</a>
+      </div>
+      
+      <!-- Growth Plan -->
+      <div class="bg-white rounded-lg p-8 shadow-card border border-gray-200 flex flex-col">
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Growth plan</h3>
+        <p class="text-gray-600 mb-6 text-sm">Scaling teams</p>
+        <div class="text-3xl font-bold text-gray-900 mb-6">$49</div>
+        <a href="#" class="w-full text-center bg-blue-900 text-white py-3 rounded-md font-semibold hover:opacity-90 transition mt-auto">Get started</a>
+      </div>
+      
+      <!-- Omnichannel -->
+      <div class="bg-white rounded-lg p-8 shadow-card border border-gray-200 flex flex-col">
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Omnichannel</h3>
+        <p class="text-gray-600 mb-6 text-sm">CX / Call center</p>
+        <div class="text-3xl font-bold text-gray-900 mb-6">$99</div>
+        <a href="#" class="w-full text-center bg-blue-900 text-white py-3 rounded-md font-semibold hover:opacity-90 transition mt-auto">Get started</a>
+      </div>
+      
+      <!-- Enterprise -->
+      <div class="bg-white rounded-lg p-8 shadow-card border border-gray-200 flex flex-col">
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+        <p class="text-gray-600 mb-6 text-sm">SaaS / Large orgs</p>
+        <div class="text-2xl font-bold text-gray-900 mb-6">From $249</div>
+        <a href="#" class="w-full text-center bg-blue-900 text-white py-3 rounded-md font-semibold hover:opacity-90 transition mt-auto">Get started</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       CTA & DOWNLOAD SECTION
+       ============================================ -->
+  <div class="max-w-[1400px] mx-auto px-5 pb-20">
+    <div class="bg-white rounded-2xl p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center shadow-card">
+      <div class="flex-1">
+        <h2 class="text-4xl font-bold text-blue-900 mb-6">Get Started With NenaSasa</h2>
+        <p class="text-lg text-gray-700 mb-8">Build, manage, and scale customer engagement from one platform. Adopt a unified engagement platform that brings voice, messaging, automation, and developer capabilities together—designed to support your operations as they scale.</p>
+        <a href="#" class="inline-block gradient-hero text-white font-semibold py-3 px-8 rounded-lg hover:opacity-90 transition mb-8">Download Now</a>
+        <div class="flex gap-4">
+          <img src="/images/toppng-20.png" alt="Download on App Store" class="h-12">
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center">
+        <img src="/images/i-phone-170.png" alt="iPhone App" class="max-w-xs">
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       CONTACT FORM SECTION
+       ============================================ -->
+  <div class="max-w-[1400px] mx-auto px-5 py-20">
+    <div class="bg-cover bg-center rounded-3xl p-10 md:p-16 flex flex-col md:flex-row gap-12 items-start md:items-center" style="background-image: url('/images/background4.png'); background-size: cover; background-position: center;">
+      <div class="flex-1 text-white">
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight">Ready to Build Stronger Relationships With Your Customers?</h2>
+      </div>
+      
+      <div class="flex-1 bg-white rounded-2xl p-10 w-full">
+        <h3 class="text-2xl font-bold text-blue-900 text-center mb-8">Send Us a Message</h3>
+        
+        <div class="space-y-6">
+          <div>
+            <label class="block text-blue-900 font-semibold mb-2">Name</label>
+            <input type="text" placeholder="Name" class="w-full px-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          
+          <div>
+            <label class="block text-blue-900 font-semibold mb-2">Email address</label>
+            <input type="email" placeholder="Email" class="w-full px-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          
+          <div>
+            <label class="block text-blue-900 font-semibold mb-2">Message</label>
+            <textarea rows="4" placeholder="Message" class="w-full px-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+          
+          <button class="w-full gradient-hero text-white font-semibold py-3 rounded-lg hover:opacity-90 transition">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="bg-[#282460] text-white pt-20 pb-0">
+    <div class="max-w-[1400px] mx-auto px-5">
+      <!-- Footer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
+        <!-- Column 1: Logo & Location -->
+        <div>
+          <img src="/images/nena-sasa-background-white-20.png" alt="Logo" class="h-10 mb-5">
+          <p class="opacity-80">Lavington. Nairobi, Kenya</p>
+        </div>
+
+        <!-- Column 2: Products -->
+        <div>
+          <h4 class="text-lg font-semibold mb-5">Products</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">NenaCall</a></li>
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">NenaVoice</a></li>
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">NenaSMS</a></li>
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">NenaSDK</a></li>
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">NenaChat</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold mb-5">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">Help Desk</a></li>
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">Contact Us</a></li>
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">Terms of Service</a></li>
+            <li><a href="#" class="text-[#A9BCEA] hover:text-white transition text-sm">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contacts -->
+        <div>
+          <h4 class="text-lg font-semibold mb-5">Contacts</h4>
+          <ul class="space-y-3">
+            <li class="text-sm">Kenya: +25470000000</li>
+            <li><a href="/cdn-cgi/l/email-protection#5f363139301f313a313e2c3e2c3e713c3032" class="text-[#A9BCEA] hover:text-white transition text-sm">Email: <span class="__cf_email__" data-cfemail="c8a1a6aea788a6ada6a9bba9bba9e6aba7a5">[email&#160;protected]</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </d
