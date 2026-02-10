@@ -31,6 +31,7 @@
               "text-light": "#ffffff",
               "bg-light": "#f3f3f3",
               "bg-white": "#ffffff",
+              "bg-dark-blue": "#282460",
             },
             fontFamily: {
               sans: ["Inter", "sans-serif"],
@@ -54,6 +55,46 @@
             borderRadius: {
               std: "15px",
             },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-delayed": "float 6s ease-in-out 2s infinite",
+              "slide-up": "slideUp 0.6s ease-out",
+              "slide-in-left": "slideInLeft 0.8s ease-out",
+              "slide-in-right": "slideInRight 0.8s ease-out",
+              "fade-in": "fadeIn 0.8s ease-out",
+              "scale-in": "scaleIn 0.5s ease-out",
+              shimmer: "shimmer 2s linear infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-25px)" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(40px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+              slideInLeft: {
+                "0%": { transform: "translateX(-50px)", opacity: "0" },
+                "100%": { transform: "translateX(0)", opacity: "1" },
+              },
+              slideInRight: {
+                "0%": { transform: "translateX(50px)", opacity: "0" },
+                "100%": { transform: "translateX(0)", opacity: "1" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              scaleIn: {
+                "0%": { transform: "scale(0.9)", opacity: "0" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+              shimmer: {
+                "0%": { backgroundPosition: "-1000px 0" },
+                "100%": { backgroundPosition: "1000px 0" },
+              },
+            },
           },
         },
       };
@@ -72,8 +113,17 @@
         }
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         @apply bg-bg-light text-text-body antialiased overflow-x-hidden leading-relaxed;
+      }
+
+      /* Smooth page transitions (match reference) */
+      .page-transition {
+        transition: opacity 0.3s ease-in-out;
       }
 
       /* Animation keyframes */
@@ -126,10 +176,9 @@
         }
       }
 
-      /* Scroll-triggered animation: initial state */
       .animate-on-scroll {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(30px);
         transition:
           opacity 0.6s ease-out,
           transform 0.6s ease-out;
