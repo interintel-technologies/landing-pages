@@ -102,7 +102,6 @@
 
     <style type="text/tailwindcss">
       @layer utilities {
-        /* Custom utility for the gradient border trick on mini-apps */
         .gradient-border-card {
           background-image:
             linear-gradient(white, white),
@@ -121,12 +120,10 @@
         @apply bg-bg-light text-text-body antialiased overflow-x-hidden leading-relaxed;
       }
 
-      /* Smooth page transitions (match reference) */
       .page-transition {
         transition: opacity 0.3s ease-in-out;
       }
 
-      /* Animation keyframes */
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -187,23 +184,7 @@
         opacity: 1;
         transform: translateY(0);
       }
-      .animate-on-scroll.visible.delay-1 {
-        transition-delay: 0.1s;
-      }
-      .animate-on-scroll.visible.delay-2 {
-        transition-delay: 0.2s;
-      }
-      .animate-on-scroll.visible.delay-3 {
-        transition-delay: 0.3s;
-      }
-      .animate-on-scroll.visible.delay-4 {
-        transition-delay: 0.4s;
-      }
-      .animate-on-scroll.visible.delay-5 {
-        transition-delay: 0.5s;
-      }
 
-      /* Hero load animation */
       .hero-content {
         animation: fadeInUp 0.8s ease-out forwards;
       }
@@ -220,7 +201,6 @@
         animation: fadeInUp 0.9s ease-out 0.5s both;
       }
 
-      /* Stagger children */
       .stagger-children > * {
         opacity: 0;
         transform: translateY(20px);
@@ -228,36 +208,11 @@
           opacity 0.5s ease-out,
           transform 0.5s ease-out;
       }
-      .stagger-children.visible > *:nth-child(1) {
-        transition-delay: 0s;
-      }
-      .stagger-children.visible > *:nth-child(2) {
-        transition-delay: 0.08s;
-      }
-      .stagger-children.visible > *:nth-child(3) {
-        transition-delay: 0.16s;
-      }
-      .stagger-children.visible > *:nth-child(4) {
-        transition-delay: 0.24s;
-      }
-      .stagger-children.visible > *:nth-child(5) {
-        transition-delay: 0.32s;
-      }
-      .stagger-children.visible > *:nth-child(6) {
-        transition-delay: 0.4s;
-      }
-      .stagger-children.visible > *:nth-child(7) {
-        transition-delay: 0.48s;
-      }
-      .stagger-children.visible > *:nth-child(8) {
-        transition-delay: 0.56s;
-      }
       .stagger-children.visible > * {
         opacity: 1;
         transform: translateY(0);
       }
 
-      /* Hover lift for cards */
       .hover-lift {
         transition:
           transform 0.3s ease,
@@ -268,7 +223,6 @@
         box-shadow: 0 24px 40px rgba(63, 88, 150, 0.12);
       }
 
-      /* Button hover pulse */
       .btn-animate {
         transition:
           transform 0.3s ease,
@@ -330,7 +284,7 @@
       class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-[140px] pb-[100px] text-white rounded-b-[20px] md:rounded-b-[150px] relative overflow-hidden"
     >
       <div
-        class="max-w-[900px] mx-auto px-5 flex flex-col items-center text-center relative z-10"
+        class="max-w-[900px] mx-auto flex flex-col items-center text-center relative z-10"
       >
         <h1
           class="hero-title text-[2rem] md:text-[3.5rem] font-extrabold leading-[1.1] mb-6"
@@ -339,7 +293,7 @@
           Smarter Customer Engagement
         </h1>
         <p
-          class="hero-subtitle text-[1.1rem] md:text-[1.25rem] mb-10 opacity-90 max-w-[800px]"
+          class="hero-subtitle text-[1.1rem] md:text-[1.25rem] mb-10 opacity-90"
         >
           Bring all your customer conversations together across voice, chat,
           SMS, and intelligent automation — delivered through a single,
@@ -347,26 +301,33 @@
         </p>
         <a
           href="#"
-          class="hero-cta inline-flex items-center justify-center px-6 py-3 rounded-md font-medium transition-all duration-300 bg-gradient-hero text-white hover:opacity-90 btn-animate"
-          >Get Started</a
-        >
+          class="hero-cta bg-gradient-hero text-white font-semibold py-3 px-6 rounded-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center group btn-animate"
+          >Get Started
+          <svg
+            class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            ></path>
+          </svg>
+        </a>
 
-        <!-- Dashboard Preview Image -->
         <div
           class="hero-image mt-10 -mb-[100px] relative z-10 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
         >
-          <img
-            src="assets/select-mini-app-20.png"
-            alt="NenaSasa Dashboard Preview"
-            class="block w-full h-auto rounded-xl"
-          />
+          <img src="assets/HeroImage.svg" alt="HeroImage" />
         </div>
 
-        <!-- Decorative artwork -->
         <img
           class="w-[440px] h-[463px] absolute -left-[140px] -bottom-[100px] object-cover z-30 opacity-100 pointer-events-none hidden lg:block"
-          src="assets/untitled-design-45-10.png"
-          alt="decorative artwork"
+          src="assets/HeroImage2.svg"
+          alt="HeroImage2"
         />
       </div>
     </section>
@@ -378,7 +339,6 @@
           NenaSasa Mini-Apps
         </h2>
         <div class="flex flex-wrap justify-center gap-2.5 stagger-children">
-          <!-- Using the custom utility class defined in style tag for the gradient border -->
           <div
             class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
           >
@@ -449,13 +409,12 @@
     <!-- WHAT IS / WHY -->
     <section class="py-[60px] animate-on-scroll">
       <div class="max-w-container mx-auto px-5">
-        <!-- What Is Row -->
         <div
           class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center mb-20"
         >
           <div class="order-last md:order-first">
             <img
-              src="assets/untitled-design-38-10.png"
+              src="assets/WhatIsImg.svg"
               alt="What is NenaSasa"
               class="w-full h-auto"
             />
@@ -477,7 +436,6 @@
           </div>
         </div>
 
-        <!-- Why Row -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center">
           <div
             class="text-center col-span-1 md:col-span-2 max-w-[800px] mx-auto"
@@ -569,7 +527,7 @@
           </div>
           <div class="order-first">
             <img
-              src="assets/talking-simulation-10.png"
+              src="assets/NenacallSecImg.svg"
               alt="NenaCall Simulation"
               class="rounded-xl w-full h-auto block"
             />
@@ -636,7 +594,7 @@
           </div>
           <div class="order-first md:order-last">
             <img
-              src="assets/nenavoice-dashboard-10.png"
+              src="assets/NenavoiceDashboard.svg"
               alt="NenaVoice Dashboard"
               class="w-full h-auto block"
             />
@@ -783,8 +741,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div class="order-first md:order-first">
             <img
-              src="assets/image-130.png"
-              alt="SDK Code"
+              src="assets/NenaSDKDashboard.svg"
+              alt="NenaSDKDashboard"
               class="w-full h-auto block"
             />
           </div>
@@ -895,11 +853,7 @@
             </div>
           </div>
           <div class="order-first md:order-last">
-            <img
-              src="assets/image-100.png"
-              alt="Chat Interface"
-              class="w-full h-auto block"
-            />
+            <img src="assets/NenachatDashboard.svg" alt="NenachatDashboard" />
           </div>
         </div>
       </div>
@@ -1089,7 +1043,6 @@
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 mt-12">
-        <!-- Free Plan -->
         <div
           class="bg-white rounded-lg p-[30px_20px] shadow-card border border-[#eee] flex flex-col hover-lift"
         >
@@ -1105,7 +1058,6 @@
           >
         </div>
 
-        <!-- Starter Plan (Highlighted) -->
         <div
           class="bg-primary-red text-white rounded-lg p-[30px_20px] shadow-card border-none flex flex-col transform scale-100 lg:scale-105 z-10 hover-lift"
         >
@@ -1121,7 +1073,6 @@
           >
         </div>
 
-        <!-- Growth Plan -->
         <div
           class="bg-white rounded-lg p-[30px_20px] shadow-card border border-[#eee] flex flex-col hover-lift"
         >
@@ -1137,7 +1088,6 @@
           >
         </div>
 
-        <!-- Omnichannel -->
         <div
           class="bg-white rounded-lg p-[30px_20px] shadow-card border border-[#eee] flex flex-col hover-lift"
         >
@@ -1153,7 +1103,6 @@
           >
         </div>
 
-        <!-- Enterprise -->
         <div
           class="bg-white rounded-lg p-[30px_20px] shadow-card border border-[#eee] flex flex-col hover-lift"
         >
@@ -1194,7 +1143,6 @@
             >Download Now</a
           >
           <div class="mt-[30px]">
-            <!-- Placeholder for store buttons image -->
             <img
               src="assets/toppng-20.png"
               alt="Download on App Store"
@@ -1202,18 +1150,25 @@
             />
           </div>
         </div>
-        <div>
+        <div
+          class="relative w-full flex justify-center md:h-[300px] lg:h-[350px]"
+        >
           <img
-            src="assets/i-phone-170.png"
+            src="assets/iPhone 16.png"
             alt="iPhone App"
-            class="max-w-[300px] w-full block"
+            class="max-w-[350px] w-full block drop-shadow-xl md:absolute md:right-24 md:top-8 md:rotate-[-10deg]"
+          />
+          <img
+            src="assets/iPhone 17.png"
+            alt="iPhone 16 App"
+            class="max-w-[350px] lg:max-w-[350px] w-full block mt-6 md:mt-[-50px] drop-shadow-xl md:absolute md:right-[-8px] md:rotate-[-11deg]"
           />
         </div>
       </div>
     </div>
 
     <!-- CONTACT FORM BACKGROUND -->
-    <div class="max-w-container mx-auto px-5 py-20 animate-on-scroll">
+    <!--<div class="max-w-container mx-auto px-5 py-20 animate-on-scroll">
       <div
         class="bg-contact-pattern bg-cover bg-no-repeat bg-center rounded-[20px] p-5 md:p-[60px] flex flex-col md:flex-row gap-[60px] items-center justify-between"
       >
@@ -1264,7 +1219,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- FOOTER -->
     <footer class="bg-[#282460] text-white pt-20 pb-10 relative">
@@ -1366,11 +1321,9 @@
           </div>
         </div>
       </div>
-      <!-- <img src="assets/image0.png" alt="" class="w-full h-2.5 object-cover"> -->
     </footer>
 
     <script>
-      // Scroll-triggered animations: add .visible when element enters viewport
       (function () {
         var observerOptions = {
           root: null,
