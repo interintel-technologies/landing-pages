@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;600&family=Rubik:wght@400&family=IBM+Plex+Sans:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -34,7 +34,7 @@
               "bg-dark-blue": "#282460",
             },
             fontFamily: {
-              sans: ["Inter", "sans-serif"],
+              sans: ["Poppins", "sans-serif"],
               poppins: ["Poppins", "sans-serif"],
             },
             backgroundImage: {
@@ -54,6 +54,10 @@
             },
             borderRadius: {
               std: "15px",
+            },
+            fontSize: {
+              subtitle: "26px",
+              paragraph: "16px",
             },
             animation: {
               float: "float 6s ease-in-out infinite",
@@ -109,6 +113,10 @@
           background-origin: border-box;
           background-clip: padding-box, border-box;
           border: 2px solid transparent;
+        }
+
+        .feature-image-shadow {
+          @apply w-full h-auto block shadow-[0_24px_80px_rgba(63,88,150,0.25)];
         }
       }
 
@@ -233,6 +241,18 @@
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(208, 54, 131, 0.35);
       }
+
+      /* Mobile menu open state */
+      .mobile-menu.is-open {
+        opacity: 1;
+        visibility: visible;
+      }
+      .mobile-menu.is-open .mobile-menu-panel {
+        transform: translateX(0);
+      }
+      body.menu-open {
+        overflow: hidden;
+      }
     </style>
   </head>
   <body>
@@ -243,39 +263,151 @@
       <div
         class="max-w-container mx-auto px-5 flex justify-between items-center"
       >
-        <div class="h-10">
-          <a href="#">
-            <img
-              src="assets/nena-sasa-background-white-21.png"
-              alt="NenaSasa Logo"
-              class="h-10"
-            />
-          </a>
-        </div>
-
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex gap-8">
-          <a href="#" class="text-white font-medium flex items-center gap-2"
-            >NenaSasa products <img src="assets/chevron-down0.svg" alt=""
-          /></a>
-          <a href="#" class="text-white font-medium flex items-center gap-2"
-            >Industries <img src="assets/chevron-down1.svg" alt=""
-          /></a>
-        </nav>
-
-        <!-- Desktop Actions -->
-        <div class="hidden md:flex items-center gap-6">
-          <a href="#" class="text-white font-medium">Download app</a>
-          <a href="#" class="text-white font-medium">Log in</a>
-          <a
-            href="#"
-            class="bg-gradient-hero text-white px-6 py-2 rounded font-medium hover:opacity-90 transition-all duration-300 btn-animate"
-            >Sign In</a
+        <a href="#" class="h-10 flex-shrink-0">
+          <img
+            src="assets/nena-sasa-background-white-21.png"
+            alt="NenaSasa Logo"
+            class="h-10"
+          />
+        </a>
+        <!-- Desktop Sec 2: Nav and Actions -->
+        <div
+          class="flex text-white items-center gap-12 text-paragraph font-normal"
+        >
+          <!-- Desktop Nav -->
+          <nav
+            class="hidden md:flex items-center gap-8"
+            aria-label="Main navigation"
           >
+            <!-- Products -->
+            <a
+              href="#"
+              class="flex items-center gap-1.5 hover:font-medium"
+              aria-current="page"
+            >
+              Products
+              <svg
+                class="w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+
+            <!-- Industries -->
+            <a href="#" class="flex items-center gap-1.5 hover:font-medium">
+              Industries
+              <svg
+                class="w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <!-- Download app -->
+            <a href="#" class="flex items-center gap-1.5 hover:font-medium"
+              >Download app</a
+            >
+          </nav>
+
+          <!-- Desktop Actions -->
+          <div class="hidden md:flex items-center gap-6">
+            <a href="#" class="text-white font-normal hover:font-medium"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="bg-gradient-hero text-white px-6 py-2 rounded font-medium hover:opacity-90 transition-all duration-300 btn-animate"
+              >Sign Up</a
+            >
+          </div>
         </div>
 
-        <!-- Mobile Menu Toggle -->
-        <div class="block md:hidden text-white text-2xl cursor-pointer">☰</div>
+        <!-- Mobile: Hamburger button -->
+        <button
+          type="button"
+          class="md:hidden flex flex-col justify-center items-center w-10 h-10 text-white focus:outline-none focus:ring-2 focus:ring-white/50 rounded"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open menu"
+          id="navbar-toggle"
+        >
+          <span class="navbar-icon-open">
+            <span class="block w-6 h-0.5 bg-white rounded mb-1.5"></span>
+            <span class="block w-6 h-0.5 bg-white rounded mb-1.5"></span>
+            <span class="block w-6 h-0.5 bg-white rounded"></span>
+          </span>
+          <span class="navbar-icon-close hidden">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <!-- Mobile menu panel -->
+      <div
+        id="mobile-menu"
+        class="mobile-menu fixed inset-0 z-40 md:hidden opacity-0 invisible transition-all duration-300"
+        aria-hidden="true"
+      >
+        <div
+          class="mobile-menu-backdrop absolute inset-0 bg-[#2c0064]/95"
+          id="mobile-menu-backdrop"
+        ></div>
+        <div
+          class="mobile-menu-panel absolute top-0 right-0 h-full w-full max-w-sm bg-[#2c0064] shadow-xl flex flex-col pt-24 px-6 pb-8 translate-x-full transition-transform duration-300"
+        >
+          <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
+            <a
+              href="#"
+              class="text-white font-medium py-3 border-b border-white/20"
+              >Products</a
+            >
+            <a
+              href="#"
+              class="text-white font-medium py-3 border-b border-white/20"
+              >Industries</a
+            >
+            <a
+              href="#"
+              class="text-white font-medium py-3 border-b border-white/20"
+              >Download app</a
+            >
+            <a
+              href="#"
+              class="text-white font-medium py-3 border-b border-white/20"
+              >Log in</a
+            >
+            <a
+              href="#"
+              class="mt-4 bg-gradient-hero text-white text-center font-semibold py-3 px-6 rounded font-medium hover:opacity-90"
+              >Sign Up</a
+            >
+          </nav>
+        </div>
       </div>
     </header>
 
@@ -284,7 +416,7 @@
       class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-[140px] pb-[100px] text-white rounded-b-[20px] md:rounded-b-[150px] relative overflow-hidden"
     >
       <div
-        class="max-w-[900px] mx-auto flex flex-col items-center text-center relative z-10"
+        class="max-w-[960px] mx-auto flex flex-col items-center text-center relative z-10"
       >
         <h1
           class="hero-title text-[2rem] md:text-[3.5rem] font-extrabold leading-[1.1] mb-6"
@@ -292,9 +424,7 @@
           One Platform for<br />
           Smarter Customer Engagement
         </h1>
-        <p
-          class="hero-subtitle text-[1.1rem] md:text-[1.25rem] mb-10 opacity-90"
-        >
+        <p class="hero-subtitle text-[20px] mb-10 opacity-90">
           Bring all your customer conversations together across voice, chat,
           SMS, and intelligent automation — delivered through a single,
           integrated platform built for real-world operations.
@@ -335,7 +465,7 @@
     <!-- MINI APPS -->
     <section class="py-[60px] px-5 text-center w-full animate-on-scroll">
       <div class="w-full">
-        <h2 class="text-primary-blue font-semibold text-2xl mb-10">
+        <h2 class="text-primary-blue font-semibold text-subtitle mb-10">
           NenaSasa Mini-Apps
         </h2>
         <div class="flex flex-wrap justify-center gap-2.5 stagger-children">
@@ -423,7 +553,7 @@
             <h2 class="text-primary-blue text-[2.2rem] font-bold mb-5">
               What Is NenaSasa
             </h2>
-            <p class="text-[1.1rem] text-text-body">
+            <p class="text-paragraph text-text-body">
               NenaSasa is a unified customer engagement and communications
               platform designed for businesses that operate across voice and
               messaging channels.
@@ -443,7 +573,7 @@
             <h2 class="text-primary-blue text-[2.2rem] font-bold mb-5">
               Why NenaSasa
             </h2>
-            <p class="text-[1.1rem] text-text-body">
+            <p class="text-paragraph text-text-body">
               Customer communication today is fragmented across channels, teams,
               and tools. This leads to operational inefficiencies, inconsistent
               customer experiences, and limited visibility.
@@ -472,7 +602,7 @@
                 >Lightweight Voice & Chat for Frontline Teams</span
               >
             </h3>
-            <p class="text-[1.1rem] mb-[30px]">
+            <p class="text-paragraph mb-[30px]">
               A fast, agent-facing application for handling voice calls and chat
               conversations from a single interface.
             </p>
@@ -483,7 +613,7 @@
                 >
                   1
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Unified voice and chat workspace
                 </div>
               </div>
@@ -493,7 +623,7 @@
                 >
                   2
                 </div>
-                <div class="text-[1.1rem]">Inbound and outbound calling</div>
+                <div class="text-paragraph">Inbound and outbound calling</div>
               </div>
               <div class="flex items-center gap-[15px]">
                 <div
@@ -501,7 +631,7 @@
                 >
                   3
                 </div>
-                <div class="text-[1.1rem]">Real-time chat handling</div>
+                <div class="text-paragraph">Real-time chat handling</div>
               </div>
               <div class="flex items-center gap-[15px]">
                 <div
@@ -509,7 +639,7 @@
                 >
                   4
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Centralized conversation history
                 </div>
               </div>
@@ -519,7 +649,7 @@
                 >
                   5
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Quick deployment with minimal setup
                 </div>
               </div>
@@ -527,9 +657,9 @@
           </div>
           <div class="order-first">
             <img
-              src="assets/NenacallSecImg.svg"
+              src="assets/TalkingSimulation.svg"
               alt="NenaCall Simulation"
-              class="rounded-xl w-full h-auto block"
+              class="feature-image-shadow"
             />
           </div>
         </div>
@@ -547,7 +677,7 @@
                 >Voice Operations & Performance Management</span
               >
             </h3>
-            <p class="text-[1.1rem] mb-[30px]">
+            <p class="text-paragraph mb-[30px]">
               The administrative and intelligence layer that provides visibility
               and control over voice and chat operations.
             </p>
@@ -558,7 +688,7 @@
                 >
                   1
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Agent monitoring and availability tracking
                 </div>
               </div>
@@ -568,7 +698,7 @@
                 >
                   2
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Performance metrics and operational insights
                 </div>
               </div>
@@ -578,7 +708,9 @@
                 >
                   3
                 </div>
-                <div class="text-[1.1rem]">Call and conversation oversight</div>
+                <div class="text-paragraph">
+                  Call and conversation oversight
+                </div>
               </div>
               <div class="flex items-center gap-[15px]">
                 <div
@@ -586,7 +718,7 @@
                 >
                   4
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Analytics for workforce planning and optimization
                 </div>
               </div>
@@ -596,7 +728,7 @@
             <img
               src="assets/NenavoiceDashboard.svg"
               alt="NenaVoice Dashboard"
-              class="w-full h-auto block"
+              class="feature-image-shadow"
             />
           </div>
         </div>
@@ -609,7 +741,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div class="order-first md:order-first">
             <img
-              src="assets/screenshot-2026-01-21-111627-10.png"
+              src="assets/NenabotDashboard.svg"
               alt="NenaBot Logic"
               class="w-full h-auto block"
             />
@@ -621,7 +753,7 @@
                 >AI-Powered Conversational Automation</span
               >
             </h3>
-            <p class="text-[1.1rem] mb-[30px]">
+            <p class="text-paragraph mb-[30px]">
               An intelligent automation layer designed to handle repetitive,
               high-volume customer interactions across chat channels.
             </p>
@@ -632,7 +764,7 @@
                 >
                   1
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Automated handling of routine customer requests
                 </div>
               </div>
@@ -642,7 +774,7 @@
                 >
                   2
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Structured data capture at the start of conversations
                 </div>
               </div>
@@ -652,7 +784,7 @@
                 >
                   3
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Intelligent escalation to human teams when required
                 </div>
               </div>
@@ -662,7 +794,7 @@
                 >
                   4
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   24/7 self-service without increasing support costs
                 </div>
               </div>
@@ -681,7 +813,7 @@
               <span class="text-primary-red">NenaSMS</span><br />
               <span class="text-primary-blue">Reliable SMS Messaging</span>
             </h3>
-            <p class="text-[1.1rem] mb-[30px]">
+            <p class="text-paragraph mb-[30px]">
               A high-performance SMS solution for transactional and
               campaign-based communication.
             </p>
@@ -692,7 +824,9 @@
                 >
                   1
                 </div>
-                <div class="text-[1.1rem]">Alerts, notifications, and OTPs</div>
+                <div class="text-paragraph">
+                  Alerts, notifications, and OTPs
+                </div>
               </div>
               <div class="flex items-center gap-[15px]">
                 <div
@@ -700,7 +834,7 @@
                 >
                   2
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Promotional and engagement messaging
                 </div>
               </div>
@@ -710,7 +844,7 @@
                 >
                   3
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Scheduled and automated delivery
                 </div>
               </div>
@@ -720,15 +854,15 @@
                 >
                   4
                 </div>
-                <div class="text-[1.1rem]">Delivery status visibility</div>
+                <div class="text-paragraph">Delivery status visibility</div>
               </div>
             </div>
           </div>
           <div class="order-first md:order-last">
             <img
-              src="assets/image-170.png"
+              src="assets/NenasmsDashboard.svg"
               alt="SMS Dashboard"
-              class="w-full h-auto block"
+              class="feature-image-shadow"
             />
           </div>
         </div>
@@ -753,7 +887,7 @@
                 >Developer-Friendly Integration</span
               >
             </h3>
-            <p class="text-[1.1rem] mb-[30px]">
+            <p class="text-paragraph mb-[30px]">
               Embed all communication capabilities into products and workflows
               via NenaSDK.
             </p>
@@ -764,7 +898,7 @@
                 >
                   1
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Automated handling of routine customer requests
                 </div>
               </div>
@@ -774,7 +908,7 @@
                 >
                   2
                 </div>
-                <div class="text-[1.1rem]">Structured data capture</div>
+                <div class="text-paragraph">Structured data capture</div>
               </div>
               <div class="flex items-center gap-[15px]">
                 <div
@@ -782,7 +916,7 @@
                 >
                   3
                 </div>
-                <div class="text-[1.1rem]">Intelligent escalation</div>
+                <div class="text-paragraph">Intelligent escalation</div>
               </div>
               <div class="flex items-center gap-[15px]">
                 <div
@@ -790,7 +924,7 @@
                 >
                   4
                 </div>
-                <div class="text-[1.1rem]">24/7 self-service</div>
+                <div class="text-paragraph">24/7 self-service</div>
               </div>
             </div>
           </div>
@@ -807,7 +941,7 @@
               <span class="text-primary-red">NenaChat</span><br />
               <span class="text-primary-blue">AI-Powered Chat at Scale</span>
             </h3>
-            <p class="text-[1.1rem] mb-[30px]">
+            <p class="text-paragraph mb-[30px]">
               A smart chat platform that combines automation and human support
               to deliver fast, consistent customer conversations.
             </p>
@@ -818,7 +952,7 @@
                 >
                   1
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   AI-assisted chat handling for common inquiries
                 </div>
               </div>
@@ -828,7 +962,9 @@
                 >
                   2
                 </div>
-                <div class="text-[1.1rem]">Seamless handoff to live agents</div>
+                <div class="text-paragraph">
+                  Seamless handoff to live agents
+                </div>
               </div>
               <div class="flex items-center gap-[15px]">
                 <div
@@ -836,7 +972,7 @@
                 >
                   3
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Centralized conversation management
                 </div>
               </div>
@@ -846,7 +982,7 @@
                 >
                   4
                 </div>
-                <div class="text-[1.1rem]">
+                <div class="text-paragraph">
                   Scalable operations for growing chat volumes
                 </div>
               </div>
@@ -868,7 +1004,7 @@
           <h2 class="text-[2.5rem] mb-2.5 font-bold">
             How It All Works Together
           </h2>
-          <p class="text-[1.2rem] opacity-90">
+          <p class="text-paragraph opacity-90">
             NenaSasa is modular by design, but unified in operation.
           </p>
         </div>
@@ -884,7 +1020,7 @@
               alt="NenaCall"
               class="h-10 mb-5"
             />
-            <p class="text-[1.1rem] leading-relaxed">
+            <p class="text-paragraph leading-relaxed">
               Use NenaCall for frontline agent execution.
             </p>
           </div>
@@ -896,7 +1032,7 @@
               alt="NenaVoice"
               class="h-10 mb-5"
             />
-            <p class="text-[1.1rem] leading-relaxed">
+            <p class="text-paragraph leading-relaxed">
               Manage teams and performance with NenaVoice.
             </p>
           </div>
@@ -908,7 +1044,7 @@
               alt="NenaChat"
               class="h-10 mb-5"
             />
-            <p class="text-[1.1rem] leading-relaxed">
+            <p class="text-paragraph leading-relaxed">
               Engage customers through live and AI-assisted chat using NenaChat.
             </p>
           </div>
@@ -920,7 +1056,7 @@
               alt="NenaBot"
               class="h-10 mb-5"
             />
-            <p class="text-[1.1rem] leading-relaxed">
+            <p class="text-paragraph leading-relaxed">
               Automate high-volume, repetitive interactions with NenaBot.
             </p>
           </div>
@@ -932,7 +1068,7 @@
               alt="NenaSMS"
               class="h-10 mb-5"
             />
-            <p class="text-[1.1rem] leading-relaxed">
+            <p class="text-paragraph leading-relaxed">
               Reach customers instantly with NenaSMS.
             </p>
           </div>
@@ -944,7 +1080,7 @@
               alt="NenaSDK"
               class="h-10 mb-5"
             />
-            <p class="text-[1.1rem] leading-relaxed">
+            <p class="text-paragraph leading-relaxed">
               Embed all communication capabilities into products and workflows
               via NenaSDK.
             </p>
@@ -952,7 +1088,7 @@
         </div>
 
         <div class="text-center">
-          <p>
+          <p class="text-paragraph">
             All interactions operate within one platform architecture, enabling
             consistent customer experiences and centralized operational
             visibility.
@@ -1131,17 +1267,12 @@
           <h2 class="text-[2.5rem] text-text-dark mb-5 font-bold">
             Get Started With NenaSasa
           </h2>
-          <p class="text-[1.1rem]">
+          <p class="text-paragraph">
             Build, manage, and scale customer engagement from one platform.
             Adopt a unified engagement platform that brings voice, messaging,
             automation, and developer capabilities together—designed to support
             your operations as they scale.
           </p>
-          <a
-            href="#"
-            class="mt-5 inline-block px-6 py-3 rounded-md font-medium transition-all duration-300 bg-gradient-hero text-white hover:opacity-90 btn-animate"
-            >Download Now</a
-          >
           <div class="mt-[30px]">
             <img
               src="assets/toppng-20.png"
@@ -1149,6 +1280,11 @@
               class="max-w-[200px]"
             />
           </div>
+          <a
+            href="#"
+            class="mt-5 inline-block px-6 py-3 rounded-md font-medium transition-all duration-300 bg-gradient-hero text-white hover:opacity-90 btn-animate"
+            >Download Now</a
+          >
         </div>
         <div
           class="relative w-full flex justify-center md:h-[300px] lg:h-[350px]"
@@ -1233,88 +1369,88 @@
               alt="Logo"
               class="h-10 mb-5"
             />
-            <p class="opacity-80">Lavington. Nairobi, Kenya</p>
+            <p class="opacity-80 text-paragraph">Lavington. Nairobi, Kenya</p>
           </div>
           <div>
-            <h4 class="text-[1.1rem] mb-5 font-bold">Products</h4>
+            <h4 class="text-paragraph mb-5 font-bold">Products</h4>
             <ul>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >NenaCall</a
                 >
               </li>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >NenaVoice</a
                 >
               </li>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >NenaSMS</a
                 >
               </li>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >NenaSDK</a
                 >
               </li>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >NenaChat</a
                 >
               </li>
             </ul>
           </div>
           <div>
-            <h4 class="text-[1.1rem] mb-5 font-bold">Quick Links</h4>
+            <h4 class="text-paragraph mb-5 font-bold">Quick Links</h4>
             <ul>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >Help Desk</a
                 >
               </li>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >Contact Us</a
                 >
               </li>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >Terms of Service</a
                 >
               </li>
               <li class="mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-[0.9rem] hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-paragraph hover:text-white transition-colors"
                   >Privacy Policy</a
                 >
               </li>
             </ul>
           </div>
           <div>
-            <h4 class="text-[1.1rem] mb-5 font-bold">Contacts</h4>
+            <h4 class="text-paragraph mb-5 font-bold">Contacts</h4>
             <ul>
-              <li class="mb-3 text-[#a9bcea] text-[0.9rem]">
+              <li class="mb-3 text-[#a9bcea] text-paragraph">
                 Kenya: +25470000000
               </li>
-              <li class="mb-3 text-[#a9bcea] text-[0.9rem]">
+              <li class="mb-3 text-[#a9bcea] text-paragraph">
                 Email: info@nenasasa.com
               </li>
             </ul>
@@ -1342,6 +1478,54 @@
         });
         document.querySelectorAll(".stagger-children").forEach(function (el) {
           observer.observe(el);
+        });
+      })();
+
+      /* Navbar mobile menu toggle */
+      (function () {
+        var toggle = document.getElementById("navbar-toggle");
+        var menu = document.getElementById("mobile-menu");
+        var backdrop = document.getElementById("mobile-menu-backdrop");
+        if (!toggle || !menu) return;
+
+        function openMenu() {
+          menu.classList.add("is-open");
+          menu.setAttribute("aria-hidden", "false");
+          toggle.setAttribute("aria-expanded", "true");
+          toggle.setAttribute("aria-label", "Close menu");
+          toggle.querySelector(".navbar-icon-open").classList.add("hidden");
+          toggle.querySelector(".navbar-icon-close").classList.remove("hidden");
+          document.body.classList.add("menu-open");
+        }
+
+        function closeMenu() {
+          menu.classList.remove("is-open");
+          menu.setAttribute("aria-hidden", "true");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Open menu");
+          toggle.querySelector(".navbar-icon-open").classList.remove("hidden");
+          toggle.querySelector(".navbar-icon-close").classList.add("hidden");
+          document.body.classList.remove("menu-open");
+        }
+
+        toggle.addEventListener("click", function () {
+          if (menu.classList.contains("is-open")) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
+        });
+
+        backdrop.addEventListener("click", closeMenu);
+
+        menu.querySelectorAll("nav a").forEach(function (link) {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && menu.classList.contains("is-open")) {
+            closeMenu();
+          }
         });
       })();
     </script>
