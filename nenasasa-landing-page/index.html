@@ -253,6 +253,30 @@
       body.menu-open {
         overflow: hidden;
       }
+
+      /* Nav dropdown: show panel on hover, keep visible when moving to panel */
+      .nav-dropdown .nav-dropdown-panel {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4px);
+        transition:
+          opacity 0.2s ease,
+          visibility 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-dropdown-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .nav-dropdown-panel::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        height: 12px;
+      }
     </style>
   </head>
   <body>
@@ -279,43 +303,356 @@
             class="hidden md:flex items-center gap-8"
             aria-label="Main navigation"
           >
-            <!-- Products -->
-            <a
-              href="#"
-              class="flex items-center gap-1.5 hover:font-medium"
-              aria-current="page"
-            >
-              Products
-              <svg
-                class="w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                aria-hidden="true"
+            <!-- Products dropdown -->
+            <div class="nav-dropdown relative">
+              <a
+                href="#"
+                class="flex items-center gap-1.5 hover:font-medium"
+                aria-haspopup="true"
+                aria-expanded="false"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </a>
+                Products
+                <svg
+                  class="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="nav-dropdown-panel absolute -translate-x-1/2 top-full pt-2 z-50 min-w-[600px]"
+                role="menu"
+              >
+                <div
+                  class="bg-white rounded-sm shadow-[0_10px_40px_rgba(0,0,0,0.12)] p-4 grid grid-cols-2 gap-4 border border-gray-100"
+                >
+                  <!-- NenaSasa On Dropdown -->
+                  <a
+                    href="#"
+                    class="flex gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item text-left"
+                    role="menuitem"
+                  >
+                    <div
+                      class="flex-shrink-0 w-11 h-11 rounded-lg bg-primary-blue/10 flex items-center justify-center text-primary-blue"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <span
+                        class="font-semibold text-primary-blue block group-hover/item:text-primary-red transition-colors"
+                        >NenaSasa</span
+                      >
+                      <span class="text-sm text-text-body block"
+                        >Our flagship platform that unifies customer
+                        communication into one intelligent workspace. From AI
+                        chat to cloud voice.</span
+                      >
+                      <span
+                        class="text-sm font-medium text-primary-red underline mt-1 inline-block"
+                        >EXPLORE NENASASA</span
+                      >
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item text-left"
+                    role="menuitem"
+                  >
+                    <div
+                      class="flex-shrink-0 w-11 h-11 rounded-lg bg-primary-blue/10 flex items-center justify-center text-primary-blue"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <span
+                        class="font-semibold text-primary-blue block group-hover/item:text-primary-red transition-colors"
+                        >NikoBizz</span
+                      >
+                      <span class="text-sm text-text-body block"
+                        >A full-service business management suite for SMEs,
+                        enabling digital transformation across sales, customer
+                        service, inventory, and marketing.</span
+                      >
+                      <span
+                        class="text-sm font-medium text-primary-red underline mt-1 inline-block"
+                        >EXPLORE NIKOBIZZ</span
+                      >
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item text-left"
+                    role="menuitem"
+                  >
+                    <div
+                      class="flex-shrink-0 w-11 h-11 rounded-lg bg-primary-blue/10 flex items-center justify-center text-primary-blue"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <span
+                        class="font-semibold text-primary-blue block group-hover/item:text-primary-red transition-colors"
+                        >MiPay</span
+                      >
+                      <span class="text-sm text-text-body block"
+                        >A USSD-driven mobile airtime top-up and payments
+                        platform (*328#), designed for convenience, speed, and
+                        wide accessibility.</span
+                      >
+                      <span
+                        class="text-sm font-medium text-primary-red underline mt-1 inline-block"
+                        >EXPLORE MIPAY</span
+                      >
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item text-left"
+                    role="menuitem"
+                  >
+                    <div
+                      class="flex-shrink-0 w-11 h-11 rounded-lg bg-primary-blue/10 flex items-center justify-center text-primary-blue"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <span
+                        class="font-semibold text-primary-blue block group-hover/item:text-primary-red transition-colors"
+                        >Zua</span
+                      >
+                      <span class="text-sm text-text-body block"
+                        >Our AI innovation lab focused on solving Africa's major
+                        challenges using machine learning and data science –
+                        healthcare triage, fraud detection, smart credit
+                        scoring.</span
+                      >
+                      <span
+                        class="text-sm font-medium text-primary-red underline mt-1 inline-block"
+                        >EXPLORE ZUA</span
+                      >
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
 
-            <!-- Industries -->
-            <a href="#" class="flex items-center gap-1.5 hover:font-medium">
-              Industries
-              <svg
-                class="w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                aria-hidden="true"
+            <!-- Industries dropdown -->
+            <div class="nav-dropdown relative">
+              <a
+                href="#"
+                class="flex items-center gap-1.5 hover:font-medium"
+                aria-haspopup="true"
+                aria-expanded="false"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </a>
+                Industries
+                <svg
+                  class="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="nav-dropdown-panel absolute -translate-x-1/2 top-full pt-2 z-50 min-w-[500px]"
+                role="menu"
+              >
+                <div
+                  class="bg-white rounded-sm shadow-[0_10px_40px_rgba(0,0,0,0.12)] p-4 grid grid-cols-2 gap-4 border border-gray-100"
+                >
+                  <a
+                    href="#"
+                    class="flex gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item text-left"
+                    role="menuitem"
+                  >
+                    <div
+                      class="flex-shrink-0 w-11 h-11 rounded-lg bg-primary-blue/10 flex items-center justify-center text-primary-blue"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <span
+                        class="font-semibold text-primary-blue block group-hover/item:text-primary-red transition-colors"
+                        >Retail</span
+                      >
+                      <span class="text-sm text-text-body block"
+                        >Customer engagement and support for retail
+                        operations.</span
+                      >
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item text-left"
+                    role="menuitem"
+                  >
+                    <div
+                      class="flex-shrink-0 w-11 h-11 rounded-lg bg-primary-blue/10 flex items-center justify-center text-primary-blue"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <span
+                        class="font-semibold text-primary-blue block group-hover/item:text-primary-red transition-colors"
+                        >Financial Services</span
+                      >
+                      <span class="text-sm text-text-body block"
+                        >Secure communications and compliance for banks and
+                        insurers.</span
+                      >
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item text-left"
+                    role="menuitem"
+                  >
+                    <div
+                      class="flex-shrink-0 w-11 h-11 rounded-lg bg-primary-blue/10 flex items-center justify-center text-primary-blue"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <span
+                        class="font-semibold text-primary-blue block group-hover/item:text-primary-red transition-colors"
+                        >Healthcare</span
+                      >
+                      <span class="text-sm text-text-body block"
+                        >Patient outreach and appointment management.</span
+                      >
+                    </div>
+                  </a>
+                  <a
+                    href="#"
+                    class="flex gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item text-left"
+                    role="menuitem"
+                  >
+                    <div
+                      class="flex-shrink-0 w-11 h-11 rounded-lg bg-primary-blue/10 flex items-center justify-center text-primary-blue"
+                    >
+                      <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+                        />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <span
+                        class="font-semibold text-primary-blue block group-hover/item:text-primary-red transition-colors"
+                        >Telecom</span
+                      >
+                      <span class="text-sm text-text-body block"
+                        >USSD, voice and messaging solutions for
+                        operators.</span
+                      >
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
             <!-- Download app -->
             <a href="#" class="flex items-center gap-1.5 hover:font-medium"
               >Download app</a
@@ -413,8 +750,13 @@
 
     <!-- HERO SECTION -->
     <section
-      class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-[140px] pb-[100px] text-white rounded-b-[20px] md:rounded-b-[150px] relative overflow-hidden"
+      class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-[140px] pb-[100px] text-white rounded-b-[20px] md:rounded-b-[150px] relative h-screen overflow-visible"
     >
+      <img
+        class="w-auto h-[50%] absolute left-[8%] bottom-0 object-cover z-30 opacity-100 pointer-events-none hidden lg:block"
+        src="assets/HeroImage2.svg"
+        alt="HeroImage2"
+      />
       <div
         class="max-w-[960px] mx-auto flex flex-col items-center text-center relative z-10"
       >
@@ -449,21 +791,17 @@
         </a>
 
         <div
-          class="hero-image mt-10 -mb-[100px] relative z-10 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
+          class="hero-image mt-8 w-[90vw] md:w-[60vw] ml-0 md:ml-[120px] lg:ml-[200px] -mb-[100px] relative z-10 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
         >
           <img src="assets/HeroImage.svg" alt="HeroImage" />
         </div>
-
-        <img
-          class="w-[440px] h-[463px] absolute -left-[140px] -bottom-[100px] object-cover z-30 opacity-100 pointer-events-none hidden lg:block"
-          src="assets/HeroImage2.svg"
-          alt="HeroImage2"
-        />
       </div>
     </section>
 
     <!-- MINI APPS -->
-    <section class="py-[60px] px-5 text-center w-full animate-on-scroll">
+    <section
+      class="py-[60px] mt-[30vh] px-5 text-center w-full animate-on-scroll"
+    >
       <div class="w-full">
         <h2 class="text-primary-blue font-semibold text-subtitle mb-10">
           NenaSasa Mini-Apps
