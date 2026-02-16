@@ -277,13 +277,139 @@
         bottom: 100%;
         height: 12px;
       }
+
+      .nav-dropdown > a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 3px; /* Thick underline */
+        background-color: currentColor;
+        transition: width 0.3s ease;
+      }
+
+      .nav-dropdown > a:hover::after {
+        width: 100%;
+      }
+
+      .nav-dropdown > a:hover svg {
+        transform: rotate(180deg);
+      }
+
+      .nav-dropdown > a svg {
+        transition: transform 0.2s ease;
+      }
+
+      .nav-dropdown > a:hover {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      /* Sticky navbar with hide/show on scroll */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transition:
+          transform 0.3s ease,
+          background-color 0.3s ease;
+        background-color: transparent;
+      }
+
+      .navbar.scrolled {
+        background-color: #2c0064;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar.navbar-hidden {
+        transform: translateY(-100%);
+      }
+
+      .navbar.navbar-visible {
+        transform: translateY(0);
+      }
+
+      /* Adjust the header to work with the fixed navbar */
+      header {
+        position: relative; /* Remove the absolute positioning */
+      }
+
+      /* Infinite scroll animation */
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(
+            calc(-250px * 7)
+          ); /* Adjust based on card width and number */
+        }
+      }
+
+      .slider {
+        height: 100px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      .slider::before,
+      .slider::after {
+        background: linear-gradient(
+          to right,
+          white 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        content: "";
+        height: 100px;
+        position: absolute;
+        width: 200px;
+        z-index: 2;
+      }
+
+      .slider::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+      }
+
+      .slider::before {
+        left: 0;
+        top: 0;
+      }
+
+      .slider .slide-track {
+        animation: scroll 20s linear infinite;
+        display: flex;
+        width: calc(
+          250px * 14
+        ); /* Double the number of cards for seamless loop */
+      }
+
+      .slider .slide {
+        height: 100px;
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Pause animation on hover */
+      .slider:hover .slide-track {
+        animation-play-state: paused;
+      }
     </style>
   </head>
   <body>
     <!-- NAVBAR -->
-    <header
-      class="absolute top-0 left-0 w-full z-50 py-5 md:static md:bg-transparent lg:absolute"
-    >
+    <header class="navbar py-5">
       <div
         class="max-w-container mx-auto px-5 flex justify-between items-center"
       >
@@ -667,6 +793,16 @@
             <a
               href="#"
               class="bg-gradient-hero text-white px-6 py-2 rounded font-medium hover:opacity-90 transition-all duration-300 btn-animate"
+              style="
+                font-style: normal;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                /* identical to box height, or 150% */
+                display: flex;
+                align-items: center;
+                text-align: center;
+              "
               >Sign Up</a
             >
           </div>
@@ -707,16 +843,33 @@
       <!-- Mobile menu panel -->
       <div
         id="mobile-menu"
-        class="mobile-menu fixed inset-0 z-40 md:hidden opacity-0 invisible transition-all duration-300"
+        class="mobile-menu fixed inset-0 z-40 md:hidden hidden opacity-0 bg-[#2c0064]/95 transition-opacity duration-300"
         aria-hidden="true"
       >
         <div
-          class="mobile-menu-backdrop absolute inset-0 bg-[#2c0064]/95"
-          id="mobile-menu-backdrop"
-        ></div>
-        <div
-          class="mobile-menu-panel absolute top-0 right-0 h-full w-full max-w-sm bg-[#2c0064] shadow-xl flex flex-col pt-24 px-6 pb-8 translate-x-full transition-transform duration-300"
+          class="mobile-menu-panel absolute top-0 right-0 h-[100vh] w-full max-w-sm bg-[#2c0064] shadow-xl flex flex-col pt-24 px-6 pb-8"
         >
+          <!-- Close button inside panel (mobile) -->
+          <button
+            type="button"
+            id="mobile-menu-close"
+            class="absolute top-6 right-6 text-white"
+            aria-label="Close menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
           <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
             <a
               href="#"
@@ -740,7 +893,7 @@
             >
             <a
               href="#"
-              class="mt-4 bg-gradient-hero text-white text-center font-semibold py-3 px-6 rounded font-medium hover:opacity-90"
+              class="mt-4 bg-gradient-hero text-white text-center font-semibold py-3 px-6 rounded font-medium hover:opacity-90 transition-all duration-300 btn-animate"
               >Sign Up</a
             >
           </nav>
@@ -750,10 +903,10 @@
 
     <!-- HERO SECTION -->
     <section
-      class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-[140px] pb-[100px] text-white rounded-b-[20px] md:rounded-b-[150px] relative h-screen overflow-visible"
+      class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-[140px] pb-[100px] text-white rounded-b-[15px] md:rounded-b-[150px] relative h-screen overflow-visible"
     >
       <img
-        class="w-auto h-[50%] absolute left-[8%] bottom-0 object-cover z-30 opacity-100 pointer-events-none hidden lg:block"
+        class="w-auto h-[42%] absolute left-[12%] bottom-0 object-cover z-30 opacity-100 pointer-events-none hidden lg:block"
         src="assets/HeroImage2.svg"
         alt="HeroImage2"
       />
@@ -773,25 +926,22 @@
         </p>
         <a
           href="#"
-          class="hero-cta bg-gradient-hero text-white font-semibold py-3 px-6 rounded-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center group btn-animate"
+          class="hero-cta bg-gradient-hero text-white font-semibold py-3 px-6 rounded hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center group btn-animate hover:opacity-90 transition-all duration-300 btn-animate"
+          style="
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            /* identical to box height, or 150% */
+            display: flex;
+            align-items: center;
+            text-align: center;
+          "
           >Get Started
-          <svg
-            class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13 7l5 5m0 0l-5 5m5-5H6"
-            ></path>
-          </svg>
         </a>
 
         <div
-          class="hero-image mt-8 w-[90vw] md:w-[60vw] ml-0 md:ml-[120px] lg:ml-[200px] -mb-[100px] relative z-10 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
+          class="hero-image mt-8 w-[90vw] md:w-[60vw] ml-0 md:ml-[120px] lg:ml-[200px] -mb-[100px] relative z-10 rounded-xl"
         >
           <img src="assets/HeroImage.svg" alt="HeroImage" />
         </div>
@@ -800,82 +950,179 @@
 
     <!-- MINI APPS -->
     <section
-      class="py-[60px] mt-[30vh] px-5 text-center w-full animate-on-scroll"
+      class="py-[60px] mt-[15vh] md:mt-[40vh] px-5 text-center w-full animate-on-scroll"
     >
       <div class="w-full">
         <h2 class="text-primary-blue font-semibold text-subtitle mb-10">
           NenaSasa Mini-Apps
         </h2>
-        <div class="flex flex-wrap justify-center gap-2.5 stagger-children">
-          <div
-            class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
-          >
-            <img
-              src="assets/nenacall-logo-6-30.png"
-              alt="NenaCall"
-              class="h-[35px] w-auto"
-            />
-          </div>
-          <div
-            class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
-          >
-            <img
-              src="assets/nenavoice-logo-20.png"
-              alt="NenaVoice"
-              class="h-[35px] w-auto"
-            />
-          </div>
-          <div
-            class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
-          >
-            <img
-              src="assets/nena-sms-logo-10.png"
-              alt="NenaSMS"
-              class="h-[35px] w-auto"
-            />
-          </div>
-          <div
-            class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
-          >
-            <img
-              src="assets/nena-chat-logo-10.png"
-              alt="NenaChat"
-              class="h-[35px] w-auto"
-            />
-          </div>
-          <div
-            class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
-          >
-            <img
-              src="assets/nena-mail-logo-10.png"
-              alt="NenaMail"
-              class="h-[35px] w-auto"
-            />
-          </div>
-          <div
-            class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
-          >
-            <img
-              src="assets/nena-sdk-logo-10.png"
-              alt="NenaSDK"
-              class="h-[35px] w-auto"
-            />
-          </div>
-          <div
-            class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
-          >
-            <img
-              src="assets/nenabot-logo-11.png"
-              alt="NenaBot"
-              class="h-[35px] w-auto"
-            />
+
+        <div class="slider">
+          <div class="slide-track">
+            <!-- First set of cards -->
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nenacall-logo-6-30.png"
+                  alt="NenaCall"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nenavoice-logo-20.png"
+                  alt="NenaVoice"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nena-sms-logo-10.png"
+                  alt="NenaSMS"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nena-chat-logo-10.png"
+                  alt="NenaChat"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nena-mail-logo-10.png"
+                  alt="NenaMail"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nena-sdk-logo-10.png"
+                  alt="NenaSDK"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nenabot-logo-11.png"
+                  alt="NenaBot"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+
+            <!-- Duplicate set for seamless loop -->
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nenacall-logo-6-30.png"
+                  alt="NenaCall"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nenavoice-logo-20.png"
+                  alt="NenaVoice"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nena-sms-logo-10.png"
+                  alt="NenaSMS"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nena-chat-logo-10.png"
+                  alt="NenaChat"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nena-mail-logo-10.png"
+                  alt="NenaMail"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nena-sdk-logo-10.png"
+                  alt="NenaSDK"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="slide">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-6 py-2.5 flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="assets/nenabot-logo-11.png"
+                  alt="NenaBot"
+                  class="h-[35px] w-auto"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- WHAT IS / WHY -->
-    <section class="py-[60px] animate-on-scroll">
+    <section class="py-0 md:py-[60px] animate-on-scroll">
       <div class="max-w-container mx-auto px-5">
         <div
           class="grid grid-cols-1 md:grid-cols-2 gap-[60px] items-center mb-20"
@@ -888,10 +1135,34 @@
             />
           </div>
           <div>
-            <h2 class="text-primary-blue text-[2.2rem] font-bold mb-5">
+            <h2
+              class="text-primary-blue text-[2.2rem] font-bold mb-5"
+              style="
+                font-style: normal;
+                font-weight: 700;
+                font-size: 34px;
+                line-height: 41px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+              "
+            >
               What Is NenaSasa
             </h2>
-            <p class="text-paragraph text-text-body">
+            <p
+              class="text-paragraph text-text-body"
+              style="
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 26px;
+                display: flex;
+                color: #3f5896;
+                flex: none;
+                order: 0;
+                align-self: stretch;
+              "
+            >
               NenaSasa is a unified customer engagement and communications
               platform designed for businesses that operate across voice and
               messaging channels.
@@ -908,10 +1179,31 @@
           <div
             class="text-center col-span-1 md:col-span-2 max-w-[800px] mx-auto"
           >
-            <h2 class="text-primary-blue text-[2.2rem] font-bold mb-5">
+            <h2
+              class="text-primary-blue text-[2.2rem] font-bold mb-5"
+              style="
+                font-style: normal;
+                font-weight: 700;
+                font-size: 34px;
+                line-height: 41px;
+              "
+            >
               Why NenaSasa
             </h2>
-            <p class="text-paragraph text-text-body">
+            <p
+              class="text-paragraph text-text-body"
+              style="
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 26px;
+                display: flex;
+                color: #3f5896;
+                flex: none;
+                order: 0;
+                align-self: stretch;
+              "
+            >
               Customer communication today is fragmented across channels, teams,
               and tools. This leads to operational inefficiencies, inconsistent
               customer experiences, and limited visibility.
@@ -995,7 +1287,7 @@
           </div>
           <div class="order-first">
             <img
-              src="assets/TalkingSimulation.svg"
+              src="assets/TalkingSimulation.png"
               alt="NenaCall Simulation"
               class="feature-image-shadow"
             />
@@ -1064,7 +1356,7 @@
           </div>
           <div class="order-first md:order-last">
             <img
-              src="assets/NenavoiceDashboard.svg"
+              src="assets/NenavoiceDashboard.png"
               alt="NenaVoice Dashboard"
               class="feature-image-shadow"
             />
@@ -1079,7 +1371,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div class="order-first md:order-first">
             <img
-              src="assets/NenabotDashboard.svg"
+              src="assets/NenabotDashboard.png"
               alt="NenaBot Logic"
               class="w-full h-auto block"
             />
@@ -1198,7 +1490,7 @@
           </div>
           <div class="order-first md:order-last">
             <img
-              src="assets/NenasmsDashboard.svg"
+              src="assets/NenasmsDashboard.png"
               alt="SMS Dashboard"
               class="feature-image-shadow"
             />
@@ -1213,7 +1505,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div class="order-first md:order-first">
             <img
-              src="assets/NenaSDKDashboard.svg"
+              src="assets/NenaSDKDashboard.png"
               alt="NenaSDKDashboard"
               class="w-full h-auto block"
             />
@@ -1327,7 +1619,7 @@
             </div>
           </div>
           <div class="order-first md:order-last">
-            <img src="assets/NenachatDashboard.svg" alt="NenachatDashboard" />
+            <img src="assets/NenachatDashboard.png" alt="NenachatDashboard" />
           </div>
         </div>
       </div>
@@ -1335,9 +1627,9 @@
 
     <!-- HOW IT WORKS TOGETHER -->
     <section
-      class="animate-on-scroll bg-[#282460] bg-how-it-works-pattern bg-cover bg-center py-[200px] text-white rounded-b-[150px] mb-[60px]"
+      class="animate-on-scroll bg-[#282460] bg-how-it-works-pattern bg-cover bg-center pt-[40px] pb-[90px] md:pt-[80px] md:pb-[80px] text-white rounded-b-[15px] md:rounded-b-[150px] mb-[60px]"
     >
-      <div class="max-w-container mx-auto px-5">
+      <div class="max-w-container mx-auto px-2 md:px-4">
         <div class="text-center mb-[60px]">
           <h2 class="text-[2.5rem] mb-2.5 font-bold">
             How It All Works Together
@@ -1425,7 +1717,7 @@
           </div>
         </div>
 
-        <div class="text-center">
+        <div>
           <p class="text-paragraph">
             All interactions operate within one platform architecture, enabling
             consistent customer experiences and centralized operational
@@ -1510,7 +1802,7 @@
 
     <!-- PRICING -->
     <div
-      class="max-w-container mx-auto px-5 py-20 text-center animate-on-scroll"
+      class="max-w-container mx-auto py-0 pb-4 px-5 md:py-20 text-center animate-on-scroll"
     >
       <h2 class="text-[2.5rem] text-text-dark font-bold mb-12">
         Choose your Plan
@@ -1518,7 +1810,8 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 mt-12">
         <div
-          class="bg-white rounded-lg p-[30px_20px] shadow-card border border-[#eee] flex flex-col hover-lift"
+          class="bg-white rounded-lg p-[16px] shadow-card border border-[#eee] flex flex-col hover-lift"
+          style="text-align: left"
         >
           <div class="text-[1.5rem] font-bold mb-[5px] text-text-dark">
             Free
@@ -1533,7 +1826,8 @@
         </div>
 
         <div
-          class="bg-primary-red text-white rounded-lg p-[30px_20px] shadow-card border-none flex flex-col transform scale-100 lg:scale-105 z-10 hover-lift"
+          class="bg-primary-red text-white rounded-lg p-[16px] shadow-card border-none flex flex-col transform scale-100 lg:scale-105 z-10 hover-lift"
+          style="text-align: left"
         >
           <div class="text-[1.5rem] font-bold mb-[5px] text-white">
             Starter plan
@@ -1548,7 +1842,8 @@
         </div>
 
         <div
-          class="bg-white rounded-lg p-[30px_20px] shadow-card border border-[#eee] flex flex-col hover-lift"
+          class="bg-white rounded-lg p-[16px] shadow-card border border-[#eee] flex flex-col hover-lift"
+          style="text-align: left"
         >
           <div class="text-[1.5rem] font-bold mb-[5px] text-text-dark">
             Growth plan
@@ -1563,7 +1858,8 @@
         </div>
 
         <div
-          class="bg-white rounded-lg p-[30px_20px] shadow-card border border-[#eee] flex flex-col hover-lift"
+          class="bg-white rounded-lg p-[16px] shadow-card border border-[#eee] flex flex-col hover-lift"
+          style="text-align: left"
         >
           <div class="text-[1.5rem] font-bold mb-[5px] text-text-dark">
             Omnichannel
@@ -1602,10 +1898,47 @@
         class="animate-on-scroll bg-white rounded-[20px] p-[60px] flex flex-col md:flex-row items-center justify-between gap-[50px] mb-20 relative overflow-hidden shadow-card hover-lift"
       >
         <div class="max-w-full md:max-w-[50%]">
-          <h2 class="text-[2.5rem] text-text-dark mb-5 font-bold">
+          <h2
+            class="text-[2.5rem] text-text-dark mb-5"
+            style="
+              font-style: normal;
+              font-weight: 700;
+              font-size: 42px;
+              line-height: 40px;
+              /* identical to box height, or 95% */
+              display: flex;
+              align-items: center;
+
+              /* mteja.io/International Klein Blue */
+              color: #001c9e;
+
+              /* Inside auto layout */
+              flex: none;
+              order: 0;
+              align-self: stretch;
+              flex-grow: 0;
+            "
+          >
             Get Started With NenaSasa
           </h2>
-          <p class="text-paragraph">
+          <p
+            class="text-paragraph"
+            style="
+              /* material-theme/body/large */
+              font-family: &quot;Poppins&quot;;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 24px;
+              /* or 150% */
+              letter-spacing: 0.5px;
+              color: #3f5896;
+              /* Inside auto layout */
+              flex: none;
+              order: 0;
+              flex-grow: 1;
+            "
+          >
             Build, manage, and scale customer engagement from one platform.
             Adopt a unified engagement platform that brings voice, messaging,
             automation, and developer capabilities together—designed to support
@@ -1615,7 +1948,7 @@
             <img
               src="assets/toppng-20.png"
               alt="Download on App Store"
-              class="max-w-[200px]"
+              class="w-[189px]"
             />
           </div>
           <a
@@ -1624,18 +1957,11 @@
             >Download Now</a
           >
         </div>
-        <div
-          class="relative w-full flex justify-center md:h-[300px] lg:h-[350px]"
-        >
+        <div class="relative w-full flex justify-center">
           <img
-            src="assets/iPhone 16.png"
-            alt="iPhone App"
-            class="max-w-[350px] w-full block drop-shadow-xl md:absolute md:right-24 md:top-8 md:rotate-[-10deg]"
-          />
-          <img
-            src="assets/iPhone 17.png"
-            alt="iPhone 16 App"
-            class="max-w-[350px] lg:max-w-[350px] w-full block mt-6 md:mt-[-50px] drop-shadow-xl md:absolute md:right-[-8px] md:rotate-[-11deg]"
+            src="assets/phones.png"
+            alt="Download app preview"
+            class="max-w-[420px] w-[420px] md:w-full h-auto block"
           />
         </div>
       </div>
@@ -1823,10 +2149,11 @@
       (function () {
         var toggle = document.getElementById("navbar-toggle");
         var menu = document.getElementById("mobile-menu");
-        var backdrop = document.getElementById("mobile-menu-backdrop");
+        var closeBtn = document.getElementById("mobile-menu-close");
         if (!toggle || !menu) return;
 
         function openMenu() {
+          menu.classList.remove("hidden");
           menu.classList.add("is-open");
           menu.setAttribute("aria-hidden", "false");
           toggle.setAttribute("aria-expanded", "true");
@@ -1837,6 +2164,7 @@
         }
 
         function closeMenu() {
+          menu.classList.add("hidden");
           menu.classList.remove("is-open");
           menu.setAttribute("aria-hidden", "true");
           toggle.setAttribute("aria-expanded", "false");
@@ -1854,7 +2182,9 @@
           }
         });
 
-        backdrop.addEventListener("click", closeMenu);
+        if (closeBtn) {
+          closeBtn.addEventListener("click", closeMenu);
+        }
 
         menu.querySelectorAll("nav a").forEach(function (link) {
           link.addEventListener("click", closeMenu);
@@ -1865,6 +2195,90 @@
             closeMenu();
           }
         });
+      })();
+
+      /* Navbar hide/show on scroll */
+      (function () {
+        const navbar = document.querySelector(".navbar");
+        if (!navbar) return;
+
+        let lastScrollTop = 0;
+        let scrollThreshold = 50; // Minimum scroll amount before hiding
+        let isNavbarVisible = true;
+
+        // Function to handle navbar background on scroll
+        function handleNavbarBackground() {
+          if (window.scrollY > 100) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        }
+
+        // Function to handle navbar hide/show based on scroll direction
+        function handleNavbarVisibility() {
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+
+          // Don't hide if at the top of the page
+          if (scrollTop <= 50) {
+            navbar.classList.remove("navbar-hidden");
+            navbar.classList.add("navbar-visible");
+            isNavbarVisible = true;
+            lastScrollTop = scrollTop;
+            return;
+          }
+
+          // Scrolling down
+          if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+            if (isNavbarVisible) {
+              navbar.classList.add("navbar-hidden");
+              navbar.classList.remove("navbar-visible");
+              isNavbarVisible = false;
+            }
+          }
+          // Scrolling up
+          else if (scrollTop < lastScrollTop) {
+            if (!isNavbarVisible) {
+              navbar.classList.remove("navbar-hidden");
+              navbar.classList.add("navbar-visible");
+              isNavbarVisible = true;
+            }
+          }
+
+          lastScrollTop = scrollTop;
+        }
+
+        // Initial background check
+        handleNavbarBackground();
+
+        // Throttle function to improve performance
+        function throttle(func, limit) {
+          let inThrottle;
+          return function () {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+              func.apply(context, args);
+              inThrottle = true;
+              setTimeout(() => (inThrottle = false), limit);
+            }
+          };
+        }
+
+        // Add scroll event listener with throttling
+        window.addEventListener(
+          "scroll",
+          throttle(function () {
+            handleNavbarBackground();
+            handleNavbarVisibility();
+          }, 100),
+        );
+
+        // Handle initial page load with hash in URL
+        setTimeout(() => {
+          handleNavbarVisibility();
+        }, 100);
       })();
     </script>
   </body>
