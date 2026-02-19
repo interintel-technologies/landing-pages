@@ -37,6 +37,7 @@
               "red-outline": "#D03683",
               "red-bg": "#FDD7EA",
               "card-bg": "#F8F8FF",
+              "blue-border": "#22C6F0",
             },
             fontFamily: {
               sans: ["Poppins", "sans-serif"],
@@ -149,6 +150,14 @@
         width: 75vw;
         max-width: 1400px;
         min-width: 1200px;
+      }
+
+      @media (max-width: 1199px) {
+        .content-width {
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
+        }
       }
 
       /* Gradient border card */
@@ -609,6 +618,19 @@
         width: 100%;
         height: 100%;
       }
+
+      @media (max-width: 475px) {
+        .order-container {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .content-width.mx-auto {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
     </style>
   </head>
   <body style="background-color: #f3f3f3">
@@ -951,13 +973,13 @@
       class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-10 md:pt-[100px] text-white rounded-b-[50px] md:rounded-b-[150px] relative min-h-[600px] md:h-screen overflow-hidden"
     >
       <div
-        class="w-[75vw] max-w-[1400px] min-w-[1200px] mx-auto px-4 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-8 relative z-10 md:h-full"
+        class="w-full min-w-0 max-w-[1400px] md:w-[75vw] md:min-w-[1200px] mx-auto px-4 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-8 relative z-10 md:h-full"
       >
         <div
           class="flex flex-col items-center text-center md:items-start md:text-left max-w-[90%] md:max-w-[540px] lg:max-w-[600px] pt-4 md:pt-0"
         >
           <span
-            class="inline-block border border-red-outline px-4 py-1.5 rounded-full bg-red-bg text-red-outline text-[14px] font-semibold uppercase tracking-[5.6px] mb-4 md:mb-5"
+            class="inline-block border border-red-outline px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-red-bg text-red-outline text-xs sm:text-[14px] font-semibold uppercase tracking-[3px] sm:tracking-[5.6px] mb-4 md:mb-5"
           >
             CALL CENTER
           </span>
@@ -1006,7 +1028,7 @@
     >
       <div class="w-full">
         <h2
-          class="text-primary-blue font-semibold text-xl md:text-subtitle mb-6 md:mb-10"
+          class="text-primary-blue font-semibold text-base sm:text-lg md:text-subtitle mb-6 md:mb-10 px-2 sm:px-0"
         >
           Trusted Mini- App Among Many in NenaSasa Suite Apps
         </h2>
@@ -1176,7 +1198,7 @@
     </section>
 
     <!-- WHAT IS / WHY - Responsive -->
-    <section class="py-8 md:py-[60px] animate-on-scroll">
+    <section class="py-8 sm:py-6 animate-on-scroll">
       <div class="content-width mx-auto px-4 md:px-5">
         <div
           class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[60px] items-center mb-12 md:mb-20"
@@ -1190,7 +1212,7 @@
           </div>
           <div class="text-center md:text-left">
             <h2
-              class="text-primary-blue font-inter text-2xl md:text-[34px] font-bold leading-[41px] text-center mb-4 md:mb-5"
+              class="text-primary-blue font-inter text-xl sm:text-2xl md:text-[34px] font-bold leading-tight md:leading-[41px] text-center mb-4 md:mb-5"
             >
               Why NenaCall? 
             </h2>
@@ -1212,12 +1234,10 @@
     </section>
 
     <!-- Who is NenaCall for -->
-    <section class="py-8 md:py-[60px] animate-on-scroll">
-      <div
-        class="content-width mx-auto px-4 md:px-5 pb-12 md:pb-20 animate-on-scroll"
-      >
+    <section class="py-8 sm:py-6 mb-8 md:mb-12 animate-on-scroll">
+      <div class="content-width mx-auto px-4 md:px-5 animate-on-scroll">
         <div
-          class="bg-card-bg rounded-std p-5 md:p-10 shadow-card border border-[rgba(63,88,150,0.2)] flex flex-col md:flex-row items-center gap-8 md:gap-12"
+          class="bg-card-bg rounded-std p-4 sm:p-5 md:p-10 shadow-card border border-[rgba(63,88,150,0.2)] flex flex-col md:flex-row items-center gap-6 md:gap-12"
         >
           <div class="w-full md:w-1/2 space-y-4 md:space-y-6">
             <h3
@@ -1295,26 +1315,26 @@
 
     <!-- HOW IT WORKS TOGETHER - Responsive -->
     <section
-      class="animate-on-scroll bg-[#282460] bg-how-it-works-pattern bg-cover bg-center py-10 pb-10 md:pt-[120px] md:pb-[120px] text-white rounded-b-[50px] md:rounded-b-[150px] mb-10 md:mb-[60px]"
+      class="animate-on-scroll bg-[#282460] bg-how-it-works-pattern bg-cover bg-center py-8 pb-8 md:pt-[120px] md:pb-[120px] text-white rounded-b-[50px] md:rounded-b-[150px] mb-8 md:mb-[60px]"
     >
       <div class="content-width mx-auto px-4 md:px-4">
-        <div class="text-center mb-8 md:mb-[60px]">
+        <div class="text-center mb-6 md:mb-[60px] px-2">
           <h2
-            class="font-inter font-bold text-[30px] leading-[38px] md:text-[34px] md:leading-[51px] tracking-[-0.03em] text-white"
+            class="font-inter font-bold text-2xl sm:text-[30px] leading-tight sm:leading-[38px] md:text-[34px] md:leading-[51px] tracking-[-0.03em] text-white"
           >
             Key Capabilities
           </h2>
         </div>
 
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-[20px] mb-8 md:mb-10 px-4"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-[20px] mb-6 md:mb-10 px-2 sm:px-4"
         >
           <div
-            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[30px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
+            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[15px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
           >
             <div class="mb-3 md:mb-4">
               <img
-                src="images/nenacall-logo-10.png"
+                src="images/UnifiedVoiceIcon.png"
                 alt="Unified Voice & Chat Interface"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
@@ -1329,11 +1349,11 @@
           </div>
 
           <div
-            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[30px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
+            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[15px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
           >
             <div class="mb-3 md:mb-4">
               <img
-                src="images/nena-chat-logo-12.png"
+                src="images/RealTimeIcon.png"
                 alt="Real-Time Chat Conversations"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
@@ -1348,11 +1368,11 @@
           </div>
 
           <div
-            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[30px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
+            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[15px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
           >
             <div class="mb-3 md:mb-4">
               <img
-                src="images/nenavoice-logo-21.png"
+                src="images/CentralizedIcon.png"
                 alt="Centralized Conversation History"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
@@ -1367,11 +1387,11 @@
           </div>
 
           <div
-            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[30px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
+            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[15px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
           >
             <div class="mb-3 md:mb-4">
               <img
-                src="images/nenabot-logo-12.png"
+                src="images/InboundIcon.png"
                 alt="Inbound & Outbound Voice Handling"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
@@ -1386,11 +1406,11 @@
           </div>
 
           <div
-            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[30px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
+            class="animate-on-scroll bg-white border border-white/20 rounded-[20px] p-5 md:p-[15px] backdrop-blur-[10px] hover-lift transition-all duration-300 flex flex-col h-full"
           >
             <div class="mb-3 md:mb-4">
               <img
-                src="images/nena-sdk-logo-12.png"
+                src="images/LightweightIcon.png"
                 alt="Lightweight & Scalable Design"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
@@ -1404,311 +1424,111 @@
             </p>
           </div>
         </div>
-
-        <div class="px-4">
-          <p class="text-xs md:text-paragraph text-center">
-            All interactions operate within one platform architecture, enabling
-            consistent customer experiences and centralized operational
-            visibility.
-          </p>
-        </div>
-        <hr class="my-4 border-white/10" />
       </div>
     </section>
 
-    <!-- WHO IS FOR / IMPACT - Responsive -->
-    <div class="max-w-[75vw] mx-auto px-4 md:px-5">
-      <div
-        class="animate-on-scroll flex flex-col lg:flex-row bg-white rounded-std overflow-hidden shadow-card mb-12 md:mb-20 -mt-[80px] md:-mt-[150px] relative z-10 hover-lift"
-      >
-        <div class="flex-1 p-6 md:p-[50px] bg-primary-red text-white">
-          <h3 class="text-xl md:text-[2rem] mb-4 md:mb-[30px] font-bold">
-            Who Nenasasa is For
-          </h3>
-          <ul class="list-none text-sm md:text-base">
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Faster response times across channels
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Reduced operational complexity
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Improved agent productivity
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Consistent customer experiences
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Scalable engagement without cost increases
-            </li>
-          </ul>
-        </div>
-        <div class="flex-1 p-6 md:p-[50px] bg-white text-text-body">
-          <h3 class="text-xl md:text-[2rem] mb-4 md:mb-[30px] font-bold">
-            Business Impact
-          </h3>
-          <ul class="list-none text-sm md:text-base">
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Small and growing businesses
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Customer support teams
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Sales and outbound teams
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              CX and call center operations
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              SaaS platforms and developers
-            </li>
-            <li
-              class="mb-2 md:mb-[15px] pl-4 relative before:content-['•'] before:absolute before:left-0 before:font-bold"
-            >
-              Large organizations
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- PRICING - Responsive -->
+    <!-- Business Impact - Card grid -->
     <div
-      class="max-w-container mx-auto py-8 md:py-20 px-4 md:px-5 text-center animate-on-scroll"
+      class="w-full max-w-[95%] sm:max-w-[90vw] md:max-w-[75vw] mx-auto px-4 md:px-5 mb-12 md:mb-20 -mt-[60px] sm:-mt-[80px] md:-mt-[150px] relative z-10"
     >
-      <h2
-        class="text-2xl md:text-[2.5rem] text-text-dark font-bold mb-8 md:mb-12"
-        style="
-          /* Join Our Community. Empower Your Future. Enjoy Exclusive Benefits. */
-
-          font-family: &quot;Inter&quot;;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 42px;
-          line-height: 40px;
-          align-items: center;
-          text-align: center;
-
-          /* mteja.io/International Klein Blue */
-          color: #001c9e;
-
-          /* Inside auto layout */
-          flex: none;
-          order: 0;
-          align-self: stretch;
-          flex-grow: 0;
-          z-index: 0;
-        "
-      >
-        Choose your Plan
-      </h2>
-
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5 mt-8 md:mt-12 pricing-grid"
+        class="animate-on-scroll rounded-std overflow-hidden p-6 md:p-10 bg-gradient-to-r from-purple-300/30 via-white/30 to-cyan-200/30 backdrop-blur-sm"
       >
-        <div
-          class="bg-white rounded-lg p-4 md:p-[16px] shadow-card border border-[#eee] flex flex-col hover-lift text-left"
+        <!-- bg-gradient-to-r from-white/30 to-cyan-200/30 -->
+        <h3
+          class="text-lg sm:text-xl md:text-[34px] font-bold text-white text-center mb-4 md:mb-10 px-2"
         >
+          Business Impact
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <div
-            class="text-lg md:text-[1.5rem] font-semibold mb-1 text-text-dark"
+            class="animate-on-scroll bg-white rounded-xl border border-blue-border shadow-lg p-5 md:p-6 hover-lift transition-all duration-300 text-left"
           >
-            Free
-          </div>
-          <div
-            class="text-xs md:text-[0.9rem] mb-3 opacity-80"
-            style="
-              font-family: &quot;Inter&quot;;
-              font-style: normal;
-              font-weight: 500;
-              font-size: 14px;
-              line-height: 150%;
-              color: #3f5896;
-            "
-          >
-            Evaluation
-          </div>
-          <div
-            class="text-lg md:text-[1.5rem] font-semibold mb-4 text-text-dark pt-1 md:pt-3"
-          >
-            $0
-          </div>
-          <a
-            href="https://nenasasa.com/#/2/0/"
-            class="mt-auto w-full bg-primary-blue text-white inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
-            >Get started</a
-          >
-        </div>
-
-        <div
-          class="bg-primary-red text-white rounded-lg p-4 md:p-[16px] shadow-card border-none flex flex-col transform scale-100 lg:scale-105 z-10 hover-lift text-left"
-        >
-          <div class="text-lg md:text-[1.5rem] font-semibold mb-1 text-white">
-            Starter plan
-          </div>
-          <div class="text-xs md:text-[0.9rem] mb-3 opacity-80">
-            Small businesses
-          </div>
-          <div class="text-2xl md:text-[2.2rem] font-semibold mb-4 text-white">
-            $19
-          </div>
-          <a
-            href="https://nenasasa.com/#/2/0/"
-            class="mt-auto w-full bg-white text-primary-red inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
-            >Get started</a
-          >
-        </div>
-
-        <div
-          class="bg-white rounded-lg p-4 md:p-[16px] shadow-card border border-[#eee] flex flex-col hover-lift text-left"
-        >
-          <div
-            class="text-lg md:text-[1.5rem] font-semibold mb-1 text-text-dark"
-          >
-            Growth plan
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 mb-4 text-primary-blue"
+              aria-hidden="true"
+            >
+              <img
+                src="images/FasterAgentIcon.png"
+                alt="Faster agent onboarding and adoption"
+                class="w-10 h-10 md:w-12 md:h-12 mb-3"
+              />
+            </div>
+            <p
+              class="font-inter text-base sm:text-lg md:text-base text-text-body font-normal leading-snug"
+            >
+              Faster agent onboarding and adoption
+            </p>
           </div>
           <div
-            class="text-xs md:text-[0.9rem] mb-3 opacity-80"
-            style="
-              font-family: &quot;Inter&quot;;
-              font-style: normal;
-              font-weight: 500;
-              font-size: 14px;
-              line-height: 150%;
-              color: #3f5896;
-            "
+            class="animate-on-scroll bg-white rounded-xl border border-blue-border shadow-lg p-5 md:p-6 hover-lift transition-all duration-300 text-left"
           >
-            Scaling teams
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 mb-4 text-primary-blue"
+              aria-hidden="true"
+            >
+              <img
+                src="images/ShorterResponseIcon.png"
+                alt="ShorterResponseIcon"
+                class="w-10 h-10 md:w-12 md:h-12 mb-3"
+              />
+            </div>
+            <p
+              class="font-inter text-base sm:text-lg md:text-base text-text-body font-normal leading-snug"
+            >
+              Shorter response times across voice and chat
+            </p>
           </div>
           <div
-            class="text-lg md:text-[1.5rem] font-semibold mb-4 text-text-dark pt-1 md:pt-3"
+            class="animate-on-scroll bg-white rounded-xl border border-blue-border shadow-lg p-5 md:p-6 hover-lift transition-all duration-300 text-left"
           >
-            $49
-          </div>
-          <a
-            href="https://nenasasa.com/#/2/0/"
-            class="mt-auto w-full bg-primary-blue text-white inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
-            >Get started</a
-          >
-        </div>
-
-        <div
-          class="bg-white rounded-lg p-4 md:p-[16px] shadow-card border border-[#eee] flex flex-col hover-lift text-left"
-        >
-          <div
-            class="text-lg md:text-[1.5rem] font-semibold mb-1 text-text-dark"
-          >
-            Omnichannel
-          </div>
-          <div
-            class="text-xs md:text-[0.9rem] mb-3 opacity-80"
-            style="
-              font-family: &quot;Inter&quot;;
-              font-style: normal;
-              font-weight: 500;
-              font-size: 14px;
-              line-height: 150%;
-              color: #3f5896;
-            "
-          >
-            CX / Call center
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 mb-4 text-primary-blue"
+              aria-hidden="true"
+            >
+              <img
+                src="images/ImprovedExpIcon.png"
+                alt="ImprovedExpIcon"
+                class="w-10 h-10 md:w-12 md:h-12 mb-3"
+              />
+            </div>
+            <p
+              class="font-inter text-base sm:text-lg md:text-base text-text-body font-normal leading-snug"
+            >
+              Improved customer experience through simpler interactions
+            </p>
           </div>
           <div
-            class="text-lg md:text-[1.5rem] font-semibold mb-4 text-text-dark pt-1 md:pt-3"
+            class="animate-on-scroll md:col-span-3 bg-white rounded-xl border border-blue-border shadow-lg p-5 md:p-6 hover-lift transition-all duration-300 text-left place-items-center"
           >
-            $99
+            <div
+              class="w-12 h-12 md:w-14 md:h-14 mb-4 text-primary-blue"
+              aria-hidden="true"
+            >
+              <img
+                src="images/ReducedOpsIcon.png"
+                alt="ReducedOpsIcon"
+                class="w-10 h-10 md:w-12 md:h-12 mb-3"
+              />
+            </div>
+            <p
+              class="font-inter text-base sm:text-lg md:text-base text-text-body font-normal leading-snug"
+            >
+              Reduced operational overhead
+            </p>
           </div>
-          <a
-            href="https://nenasasa.com/#/2/0/"
-            class="mt-auto w-full bg-primary-blue text-white inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
-            >Get started</a
-          >
-        </div>
-
-        <div
-          class="bg-white rounded-lg p-4 md:p-[16px] shadow-card border border-[#eee] flex flex-col hover-lift text-left sm:col-span-2 lg:col-span-1"
-        >
-          <div
-            class="text-lg md:text-[1.5rem] font-semibold mb-1 text-text-dark"
-          >
-            Enterprise
-          </div>
-          <div
-            class="text-xs md:text-[0.9rem] mb-3 opacity-80"
-            style="
-              font-family: &quot;Inter&quot;;
-              font-style: normal;
-              font-weight: 500;
-              font-size: 14px;
-              line-height: 150%;
-              color: #3f5896;
-            "
-          >
-            SaaS / Large orgs
-          </div>
-          <div
-            class="text-lg md:text-[1.5rem] font-semibold mb-4 text-text-dark pt-1 md:pt-3"
-          >
-            <span class="font-medium text-[14px] text-text-body">From </span>
-            $249
-          </div>
-          <a
-            href="https://nenasasa.com/#/2/0/"
-            class="mt-auto w-full bg-primary-blue text-white inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 rounded-md font-medium text-sm md:text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
-            >Get started</a
-          >
         </div>
       </div>
     </div>
 
     <!-- CTA & DOWNLOAD - Responsive -->
-    <div class="max-w-container mx-auto px-4 md:px-5">
+    <div class="content-width mx-auto px-4 md:px-5">
       <div
-        class="animate-on-scroll bg-white rounded-[20px] p-6 md:p-[60px] flex flex-col md:flex-row items-center justify-between gap-6 md:gap-[50px] mb-12 md:mb-20 relative overflow-hidden shadow-card hover-lift cta-section"
+        class="animate-on-scroll bg-white rounded-[20px] p-4 sm:p-6 md:p-[60px] flex flex-col md:flex-row items-center justify-between gap-6 md:gap-[50px] mb-8 md:mb-20 relative overflow-hidden shadow-card hover-lift cta-section"
       >
         <div class="w-full md:max-w-[50%] text-center md:text-left">
           <h2
-            class="text-2xl md:text-[2.5rem] lg:text-[42px] text-text-dark mb-3 md:mb-5 font-bold leading-tight"
-            style="
-              /* Get Started With NenaSasa  */
-              font-family: &quot;Inter&quot;;
-              font-style: normal;
-              font-weight: 700;
-              font-size: 42px;
-              line-height: 40px;
-              /* identical to box height, or 95% */
-              display: flex;
-              align-items: center;
-
-              /* mteja.io/International Klein Blue */
-              color: #001c9e;
-
-              /* Inside auto layout */
-              flex: none;
-              order: 0;
-              align-self: stretch;
-              flex-grow: 0;
-            "
+            class="font-inter text-xl sm:text-2xl md:text-[2.5rem] lg:text-[42px] font-bold leading-tight md:leading-[40px] text-primary-blue mb-3 md:mb-5 flex items-center flex-none order-0 self-stretch flex-grow-0"
           >
             Get Started With NenaSasa
           </h2>
@@ -1727,21 +1547,7 @@
             <a
               href="https://play.google.com/apps/internaltest/4701323426176407111"
               target="_blank"
-              class="inline-block px-5 py-2 md:px-6 md:py-3 rounded-md font-medium transition-all duration-300 bg-gradient-hero text-white hover:opacity-90 btn-animate text-sm md:text-base"
-              style="
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                padding: 10px;
-                width: 153px;
-                height: 44px;
-                /* background: linear-gradient(91.79deg, #D03683 0%, #EE7D1F 95.52%); */
-                border-radius: 4px;
-                flex: none;
-                order: 1;
-                flex-grow: 0;
-              "
+              class="inline-flex justify-center items-center h-11 rounded p-2.5 flex-none order-1 flex-grow-0 font-medium transition-all duration-300 bg-gradient-hero text-white hover:opacity-90 btn-animate text-sm md:text-base w-[153px]"
               >Download Now</a
             >
           </div>
