@@ -140,6 +140,13 @@
         overflow-wrap: break-word;
       }
 
+      @media (max-width: 767px) {
+        p {
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+      }
+
       /* Responsive container padding */
       @media (max-width: 640px) {
         .container-padding {
@@ -381,9 +388,8 @@
         }
 
         section.bg-\[\#2c0064\] {
-          padding-top: 100px !important;
+          padding-top: 60px !important;
           padding-bottom: 60px !important;
-          margin-bottom: 100px !important;
         }
 
         .hero-image {
@@ -887,13 +893,13 @@
 
     <!-- HERO SECTION - Responsive -->
     <section
-      class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-10 md:pt-[100px] text-white rounded-b-[50px] md:rounded-b-[150px] relative min-h-[600px] md:h-screen overflow-hidden"
+      class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-10 md:pt-[100px] text-white rounded-b-[50px] md:rounded-b-[150px] relative min-h-[600px] overflow-hidden h-[120vh md:h-[110vh]"
     >
       <div
-        class="w-full min-w-0 max-w-[1400px] md:w-[80vw] md:min-w-[1200px] mx-auto px-4 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-8 relative z-10 md:h-full"
+        class="w-full min-w-0 max-w-[1400px] md:w-[80vw] md:min-w-[1200px] mx-auto px-4 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-0 md:gap-8 relative z-10 md:h-full"
       >
         <div
-          class="flex flex-col items-center text-center md:items-start md:text-left max-w-[90%] md:max-w-[540px] lg:max-w-[600px] pt-4 md:pt-0 mb-auto"
+          class="flex flex-col items-center text-center md:items-start md:text-left w-[100%] md:max-w-[540px] lg:max-w-[600px] pt-4 md:pt-0 mb-auto"
         >
           <span
             class="inline-block border border-red-outline px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-red-bg text-red-outline text-xs sm:text-[14px] font-semibold uppercase tracking-[3px] sm:tracking-[5.6px] mb-4 md:mb-5"
@@ -911,7 +917,7 @@
             A Simple, Powerful Communication App for your agents
           </p>
           <p
-            class="hero-paragraph text-sm md:text-base opacity-90 leading-relaxed mb-6 md:mb-8 max-w-[90%] md:max-w-none"
+            class="hero-paragraph text-base opacity-90 leading-relaxed mb-6 md:mb-8 max-w-[90%] md:max-w-none"
           >
             Set NenaCall is a lightweight communication application designed for
             frontline teams to handle both voice and chat interactions
@@ -945,7 +951,7 @@
     >
       <div class="w-full max-w-container mx-auto">
         <h2
-          class="text-primary-blue font-semibold text-base sm:text-lg md:text-subtitle mb-6 md:mb-10 px-2 sm:px-0"
+          class="text-primary-blue font-semibold text-2xl md:text-subtitle mb-6 md:mb-10 px-2 sm:px-0"
         >
           Trusted Mini-App Among Many in NenaSasa Suite Apps
         </h2>
@@ -1035,12 +1041,12 @@
           </div>
           <div class="text-center md:text-left">
             <h2
-              class="text-primary-blue font-inter text-xl sm:text-2xl md:text-[34px] font-bold leading-tight md:leading-[41px] text-center mb-4 md:mb-5"
+              class="text-primary-blue font-inter text-2xl md:text-[34px] font-bold leading-tight md:leading-[41px] text-left mb-4 md:mb-5"
             >
               Why NenaCall? 
             </h2>
             <p
-              class="text-paragraph text-text-body text-sm md:text-base font-inter font-normal leading-[26px]"
+              class="text-base text-left text-text-body md:text-paragraph font-inter font-normal leading-[26px]"
             >
               Traditional communication tools are often clunky, complex, and
               overloaded with features agents rarely use.  NenaCall removes this
@@ -1065,8 +1071,10 @@
             <h3
               class="font-inter text-xl md:text-2xl lg:text-[26px] font-bold leading-[1.4] text-left"
             >
-              <span class="block text-primary-red">NenaCall:</span>
-              <span class="block text-primary-blue">Who Is NenaCall For?</span>
+              <span class="block text-2xl text-primary-red">NenaCall:</span>
+              <span class="block text-2xl text-primary-blue"
+                >Who Is NenaCall For?</span
+              >
             </h3>
 
             <div class="flex flex-col gap-3 md:gap-4">
@@ -1076,9 +1084,7 @@
                 >
                   1
                 </div>
-                <p
-                  class="font-inter text-sm md:text-base leading-[24px] text-text-body"
-                >
+                <p class="font-inter text-base leading-[24px] text-text-body">
                   Sales teams managing high call volumes
                 </p>
               </div>
@@ -1089,9 +1095,7 @@
                 >
                   2
                 </div>
-                <p
-                  class="font-inter text-sm md:text-base leading-[24px] text-text-body"
-                >
+                <p class="font-inter text-base leading-[24px] text-text-body">
                   Customer support and service desks
                 </p>
               </div>
@@ -1102,9 +1106,7 @@
                 >
                   3
                 </div>
-                <p
-                  class="font-inter text-sm md:text-base leading-[24px] text-text-body"
-                >
+                <p class="font-inter text-base leading-[24px] text-text-body">
                   Call centers and outbound campaigns
                 </p>
               </div>
@@ -1115,9 +1117,7 @@
                 >
                   4
                 </div>
-                <p
-                  class="font-inter text-sm md:text-base leading-[24px] text-text-body"
-                >
+                <p class="font-inter text-base leading-[24px] text-text-body">
                   Growing businesses seeking scalable calling solutions
                 </p>
               </div>
@@ -1137,12 +1137,12 @@
 
     <!-- HOW IT WORKS TOGETHER - Responsive -->
     <section
-      class="animate-on-scroll bg-[#282460] bg-how-it-works-pattern bg-cover bg-center py-8 pb-8 md:pt-[120px] md:pb-[120px] text-white rounded-b-[50px] md:rounded-b-[150px] mb-8 md:mb-[60px]"
+      class="animate-on-scroll bg-[#282460] bg-how-it-works-pattern bg-cover bg-center py-8 pb-8 md:pt-[120px] md:pb-[120px] text-white rounded-b-[50px] md:rounded-b-[150px] h-[200vh] md:h-[120vh]"
     >
       <div class="content-width mx-auto px-4 md:px-4">
         <div class="text-center mb-6 md:mb-[60px] px-2">
           <h2
-            class="font-inter font-bold text-2xl sm:text-[30px] leading-tight sm:leading-[38px] md:text-[34px] md:leading-[51px] tracking-[-0.03em] text-white"
+            class="font-inter font-bold text-2xl leading-tight sm:leading-[38px] md:text-[34px] md:leading-[51px] tracking-[-0.03em] text-white"
           >
             Key Capabilities
           </h2>
@@ -1160,11 +1160,13 @@
                 alt="Unified Voice & Chat Interface"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
-              <h3 class="font-inter text-sm font-semibold text-red-outline">
+              <h3
+                class="font-inter text-lg md:text-sm font-semibold text-red-outline"
+              >
                 Unified Voice &amp; Chat Interface
               </h3>
             </div>
-            <p class="font-inter text-[13px] text-text-body">
+            <p class="font-inter text-base md:text-[13px] text-text-body">
               Handle both voice calls and chat conversations from a single,
               easy-to-use agent interface.
             </p>
@@ -1179,11 +1181,15 @@
                 alt="Real-Time Chat Conversations"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
-              <h3 class="font-inter text-sm font-semibold text-red-outline">
+              <h3
+                class="font-inter text-lg md:text-sm font-semibold text-red-outline"
+              >
                 Real-Time Chat Conversations
               </h3>
             </div>
-            <p class="font-inter text-[13px] text-text-body leading-relaxed">
+            <p
+              class="font-inter text-base md:text-[13px] text-text-body leading-relaxed"
+            >
               Engage customers instantly through chat, enabling faster responses
               and reduced call volumes.
             </p>
@@ -1198,11 +1204,15 @@
                 alt="Centralized Conversation History"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
-              <h3 class="font-inter text-sm font-semibold text-red-outline">
+              <h3
+                class="font-inter text-lg md:text-sm font-semibold text-red-outline"
+              >
                 Centralized Conversation History
               </h3>
             </div>
-            <p class="font-inter text-[13px] text-text-body leading-relaxed">
+            <p
+              class="font-inter text-base md:text-[13px] text-text-body leading-relaxed"
+            >
               Maintain a unified view of voice and chat interactions to support
               continuity and follow-ups.
             </p>
@@ -1217,11 +1227,15 @@
                 alt="Inbound & Outbound Voice Handling"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
-              <h3 class="font-inter text-sm font-semibold text-red-outline">
+              <h3
+                class="font-inter text-lg md:text-sm font-semibold text-red-outline"
+              >
                 Inbound &amp; Outbound Voice Handling
               </h3>
             </div>
-            <p class="font-inter text-[13px] text-text-body leading-relaxed">
+            <p
+              class="font-inter text-base md:text-[13px] text-text-body leading-relaxed"
+            >
               Support customer inquiries and outbound engagement with reliable
               VoIP calling.
             </p>
@@ -1236,11 +1250,15 @@
                 alt="Lightweight & Scalable Design"
                 class="w-10 h-10 md:w-12 md:h-12 mb-3"
               />
-              <h3 class="font-inter text-sm font-semibold text-red-outline">
+              <h3
+                class="font-inter text-lg md:text-sm font-semibold text-red-outline"
+              >
                 Lightweight &amp; Scalable Design
               </h3>
             </div>
-            <p class="font-inter text-[13px] text-text-body leading-relaxed">
+            <p
+              class="font-inter text-base md:text-[13px] text-text-body leading-relaxed"
+            >
               Deploy quickly and scale easily without heavy infrastructure or
               complex configurations.
             </p>
@@ -1251,14 +1269,14 @@
 
     <!-- Business Impact - Card grid -->
     <div
-      class="w-full max-w-[95%] sm:max-w-[90vw] md:max-w-[75vw] mx-auto px-4 md:px-5 mb-12 md:mb-20 -mt-[60px] sm:-mt-[80px] md:-mt-[150px] relative z-10"
+      class="w-full max-w-[95%] sm:max-w-[90vw] md:max-w-[80vw] mx-auto px-4 md:px-5 mb-12 md:mb-20 -mt-[250px] md:-mt-[300px] relative z-10"
     >
       <div
         class="animate-on-scroll rounded-std overflow-hidden p-6 md:p-10 bg-gradient-to-r from-purple-300/30 via-white/30 to-cyan-200/30 backdrop-blur-sm"
       >
         <!-- bg-gradient-to-r from-white/30 to-cyan-200/30 -->
         <h3
-          class="text-lg sm:text-xl md:text-[34px] font-bold text-white text-center mb-4 md:mb-10 px-2"
+          class="text-2xl md:text-[34px] font-bold text-white text-center mb-4 md:mb-10 px-2"
         >
           Business Impact
         </h3>
@@ -1350,11 +1368,13 @@
       >
         <div class="w-full md:max-w-[50%] text-center md:text-left">
           <h2
-            class="font-inter text-xl sm:text-2xl md:text-[2.5rem] lg:text-[42px] font-bold leading-tight md:leading-[40px] text-primary-blue mb-3 md:mb-5 flex items-center flex-none order-0 self-stretch flex-grow-0"
+            class="font-inter text-2xl md:text-[2.5rem] lg:text-[42px] font-bold leading-tight md:leading-[40px] text-primary-blue mb-3 md:mb-5 flex items-center flex-none order-0 self-stretch flex-grow-0 text-left"
           >
             Get Started With NenaCall
           </h2>
-          <p class="text-sm md:text-paragraph text-text-body mb-4 md:mb-6">
+          <p
+            class="text-base text-left md:text-paragraph text-text-body mb-4 md:mb-6"
+          >
             Streamline your team’s voice and chat with NenaCall. Download the
             lightweight app to eliminate friction and start delivering faster,
             better customer experiences today. 
@@ -1391,106 +1411,112 @@
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.5fr] gap-6 md:gap-10 mb-6 md:mb-10"
         >
-          <div class="text-center sm:text-left">
-            <img
-              src="images/NenacallLogo.png"
-              alt="NenaCall Logo"
-              class="h-8 md:h-10 mb-3 md:mb-5 mx-auto sm:mx-0"
-            />
-            <p class="opacity-80 text-xs md:text-paragraph">
+          <div class="text-left place-items-start">
+            <div>
+              <img
+                src="images/NenacallLogo.png"
+                alt="NenaCall Logo"
+                class="h-8 md:h-10 mb-3 md:mb-5 mx-auto sm:mx-0"
+              />
+            </div>
+            <p class="opacity-80 text-base md:text-paragraph">
               Lavington. Nairobi, Kenya
             </p>
           </div>
-          <div class="text-center sm:text-left">
-            <h4 class="text-sm md:text-paragraph mb-3 md:mb-5 font-bold">
+          <div class="text-left">
+            <h4 class="text-lg md:text-paragraph mb-3 md:mb-5 font-bold">
               Products
             </h4>
             <ul>
               <li class="mb-2 md:mb-3">
                 <a
                   href="https://nenacall.com"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >NenaCall</a
                 >
               </li>
               <li class="mb-2 md:mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >NenaVoice</a
                 >
               </li>
               <li class="mb-2 md:mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >NenaSMS</a
                 >
               </li>
               <li class="mb-2 md:mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >NenaSDK</a
                 >
               </li>
               <li class="mb-2 md:mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >NenaChat</a
                 >
               </li>
             </ul>
           </div>
-          <div class="text-center sm:text-left">
-            <h4 class="text-sm md:text-paragraph mb-3 md:mb-5 font-bold">
+          <div class="text-left">
+            <h4 class="text-lg md:text-paragraph mb-3 md:mb-5 font-bold">
               Quick Links
             </h4>
             <ul>
               <li class="mb-2 md:mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >Help Desk</a
                 >
               </li>
               <li class="mb-2 md:mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >Contact Us</a
                 >
               </li>
               <li class="mb-2 md:mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >Terms of Service</a
                 >
               </li>
               <li class="mb-2 md:mb-3">
                 <a
                   href="#"
-                  class="text-[#a9bcea] text-xs md:text-paragraph hover:text-white transition-colors"
+                  class="text-[#a9bcea] text-base md:text-paragraph hover:text-white transition-colors"
                   >Privacy Policy</a
                 >
               </li>
             </ul>
           </div>
-          <div class="text-center sm:text-left">
-            <h4 class="text-sm md:text-paragraph mb-3 md:mb-5 font-bold">
+          <div class="text-left">
+            <h4 class="text-lg md:text-paragraph mb-3 md:mb-5 font-bold">
               Contacts
             </h4>
             <ul>
-              <li class="mb-2 md:mb-3 text-[#a9bcea] text-xs md:text-paragraph">
+              <li
+                class="mb-2 md:mb-3 text-[#a9bcea] text-base md:text-paragraph"
+              >
                 <a
                   href="tel:+25470000000"
                   class="hover:text-white transition-colors"
                   >Kenya: +25470000000</a
                 >
               </li>
-              <li class="mb-2 md:mb-3 text-[#a9bcea] text-xs md:text-paragraph">
+              <li
+                class="mb-2 md:mb-3 text-[#a9bcea] text-base md:text-paragraph"
+              >
                 <a
                   href="mailto:info@nenasasa.com"
                   class="hover:text-white transition-colors"
