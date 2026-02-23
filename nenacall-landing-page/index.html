@@ -6,7 +6,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
     />
-    <title>NenaSasa - Unified Customer Engagement</title>
+    <title>
+      NenaCall - A Simple, Powerful Communication App for your agents
+    </title>
 
     <!-- Importing Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -203,8 +205,10 @@
       }
 
       /* Hero animations */
+      /* animation: fadeInUp 0.8s ease-out forwards; */
+
       .hero-content {
-        animation: fadeInUp 0.8s ease-out forwards;
+        animation: fadeInUp 0.8s ease-out 0.25s both;
       }
       .hero-title {
         animation: fadeInUp 0.8s ease-out 0.1s both;
@@ -212,11 +216,14 @@
       .hero-subtitle {
         animation: fadeInUp 0.8s ease-out 0.25s both;
       }
-      .hero-cta {
+      .hero-paragraph {
         animation: fadeInUp 0.8s ease-out 0.4s both;
       }
+      .hero-cta {
+        animation: fadeInUp 0.8s ease-out 0.5s both;
+      }
       .hero-image {
-        animation: fadeInUp 0.9s ease-out 0.5s both;
+        animation: fadeInUp 0.9s ease-out 0.6s both;
       }
 
       /* Hover effects */
@@ -328,96 +335,6 @@
 
       .navbar.navbar-visible {
         transform: translateY(0);
-      }
-
-      /* Infinite scroll */
-      @keyframes scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(calc(-250px * 7));
-        }
-      }
-
-      .slider {
-        height: 100px;
-        margin: auto;
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-      }
-
-      @media (max-width: 640px) {
-        .slider {
-          height: 80px;
-        }
-      }
-
-      .slider::before,
-      .slider::after {
-        content: "";
-        height: 100px;
-        position: absolute;
-        width: 100px;
-        z-index: 2;
-        pointer-events: none;
-      }
-
-      @media (max-width: 640px) {
-        .slider::before,
-        .slider::after {
-          width: 50px;
-          height: 80px;
-        }
-      }
-
-      .slider::after {
-        right: 0;
-        top: 0;
-        transform: rotateZ(180deg);
-      }
-
-      .slider::before {
-        left: 0;
-        top: 0;
-      }
-
-      .slider .slide-track {
-        animation: scroll 45s linear infinite;
-        display: flex;
-        width: calc(250px * 14);
-      }
-
-      @media (max-width: 640px) {
-        .slider .slide-track {
-          width: calc(180px * 14);
-        }
-      }
-
-      .slider .slide {
-        height: 100px;
-        margin-left: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-
-      @media (max-width: 640px) {
-        .slider .slide {
-          height: 80px;
-          /* width: 180px; */
-        }
-
-        .slider .slide img {
-          max-height: 30px;
-          width: auto;
-        }
-      }
-
-      .slider:hover .slide-track {
-        animation-play-state: paused;
       }
 
       /* Menu item styles */
@@ -641,8 +558,8 @@
       >
         <a href="#" class="h-8 md:h-10 flex-shrink-0">
           <img
-            src="images/nena-sasa-background-white-21.png"
-            alt="NenaSasa Logo"
+            src="images/NenacallLogo.png"
+            alt="NenaCall Logo"
             class="h-8 md:h-10 w-auto"
           />
         </a>
@@ -799,11 +716,11 @@
           </nav>
 
           <div class="flex items-center gap-4 lg:gap-6">
-            <a href="https://nenasasa.com/#/1/0" class="text-sm lg:text-base"
+            <a href="https://nenacall.com/#/1/0" class="text-sm lg:text-base"
               >Log in</a
             >
             <a
-              href="https://nenasasa.com/#/2/0/"
+              href="https://nenacall.com/#/2/0/"
               class="bg-gradient-hero text-white px-4 lg:px-6 py-1.5 lg:py-2 rounded font-medium text-sm lg:text-base btn-animate"
               >Sign Up</a
             >
@@ -973,10 +890,10 @@
       class="bg-[#2c0064] bg-hero-pattern bg-cover bg-center pt-10 md:pt-[100px] text-white rounded-b-[50px] md:rounded-b-[150px] relative min-h-[600px] md:h-screen overflow-hidden"
     >
       <div
-        class="w-full min-w-0 max-w-[1400px] md:w-[75vw] md:min-w-[1200px] mx-auto px-4 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-8 relative z-10 md:h-full"
+        class="w-full min-w-0 max-w-[1400px] md:w-[80vw] md:min-w-[1200px] mx-auto px-4 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-8 relative z-10 md:h-full"
       >
         <div
-          class="flex flex-col items-center text-center md:items-start md:text-left max-w-[90%] md:max-w-[540px] lg:max-w-[600px] pt-4 md:pt-0"
+          class="flex flex-col items-center text-center md:items-start md:text-left max-w-[90%] md:max-w-[540px] lg:max-w-[600px] pt-4 md:pt-0 mb-auto"
         >
           <span
             class="inline-block border border-red-outline px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-red-bg text-red-outline text-xs sm:text-[14px] font-semibold uppercase tracking-[3px] sm:tracking-[5.6px] mb-4 md:mb-5"
@@ -994,18 +911,18 @@
             A Simple, Powerful Communication App for your agents
           </p>
           <p
-            class="text-sm md:text-base opacity-90 leading-relaxed mb-6 md:mb-8 max-w-[90%] md:max-w-none"
+            class="hero-paragraph text-sm md:text-base opacity-90 leading-relaxed mb-6 md:mb-8 max-w-[90%] md:max-w-none"
           >
-            Set NenaCall is a lightweight communication application designed for
+            Set NenaCall is a lightweight communication application designed for
             frontline teams to handle both voice and chat interactions
-            efficiently from a single interface. Built for speed and simplicity,
-            NenaCall helps agents manage customer conversations without the
-            complexity of traditional call center tools.
+            efficiently from a single interface. Built for speed and
+            simplicity, NenaCall helps agents manage customer conversations
+            without the complexity of traditional call center tools. 
           </p>
           <button
             type="button"
             onclick="window.location.href = 'https://nenasasa.com/#/2/0/'"
-            class="bg-gradient-hero text-white px-4 lg:px-6 py-1.5 lg:py-2 rounded font-medium text-base lg:text-base btn-animate"
+            class="hero-cta bg-gradient-hero text-white px-4 lg:px-6 py-1.5 lg:py-2 rounded font-medium text-base lg:text-base btn-animate"
           >
             Book a Demo
           </button>
@@ -1026,172 +943,78 @@
     <section
       class="py-10 md:py-[60px] px-4 text-center w-full animate-on-scroll"
     >
-      <div class="w-full">
+      <div class="w-full max-w-container mx-auto">
         <h2
           class="text-primary-blue font-semibold text-base sm:text-lg md:text-subtitle mb-6 md:mb-10 px-2 sm:px-0"
         >
-          Trusted Mini- App Among Many in NenaSasa Suite Apps
+          Trusted Mini-App Among Many in NenaSasa Suite Apps
         </h2>
 
-        <div class="slider">
-          <div class="slide-track">
-            <!-- First set of cards (keeping all your existing slides) -->
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nenacall-logo-6-30.png"
-                  alt="NenaCall"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <!-- Continue with all your other slides... (keeping them as is) -->
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nenavoice-logo-20.png"
-                  alt="NenaVoice"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nena-sms-logo-10.png"
-                  alt="NenaSMS"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nena-chat-logo-10.png"
-                  alt="NenaChat"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nena-mail-logo-10.png"
-                  alt="NenaMail"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nena-sdk-logo-10.png"
-                  alt="NenaSDK"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nenabot-logo-11.png"
-                  alt="NenaBot"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <!-- Duplicate set for seamless loop -->
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nenacall-logo-6-30.png"
-                  alt="NenaCall"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nenavoice-logo-20.png"
-                  alt="NenaVoice"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nena-sms-logo-10.png"
-                  alt="NenaSMS"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nena-chat-logo-10.png"
-                  alt="NenaChat"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nena-mail-logo-10.png"
-                  alt="NenaMail"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nena-sdk-logo-10.png"
-                  alt="NenaSDK"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
-            <div class="slide">
-              <div
-                class="gradient-border-card bg-white rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[120px] md:min-w-[140px] hover-lift cursor-pointer"
-              >
-                <img
-                  src="images/nenabot-logo-11.png"
-                  alt="NenaBot"
-                  class="h-6 md:h-[35px] w-auto"
-                />
-              </div>
-            </div>
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-6 justify-items-center mx-auto"
+        >
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="images/nenacall-logo-6-30.png"
+              alt="NenaCall"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="images/nenavoice-logo-20.png"
+              alt="NenaVoice"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="images/nena-sms-logo-10.png"
+              alt="NenaSMS"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="images/nena-chat-logo-10.png"
+              alt="NenaChat"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="images/nena-mail-logo-10.png"
+              alt="NenaMail"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="images/nena-sdk-logo-10.png"
+              alt="NenaSDK"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer sm:col-start-2 md:col-start-auto"
+          >
+            <img
+              src="images/nenabot-logo-11.png"
+              alt="NenaBot"
+              class="h-6 md:h-[35px] w-auto"
+            />
           </div>
         </div>
       </div>
@@ -1219,14 +1042,13 @@
             <p
               class="text-paragraph text-text-body text-sm md:text-base font-inter font-normal leading-[26px]"
             >
-              NenaSasa is a unified customer engagement and communications
-              platform designed for businesses that operate across voice and
-              messaging channels.
+              Traditional communication tools are often clunky, complex, and
+              overloaded with features agents rarely use.  NenaCall removes this
+              friction by delivering a clean, focused application for handling
+              voice and chat conversations. 
               <br /><br />
-              Instead of managing disconnected tools for calls, chat,
-              automation, and messaging, NenaSasa provides a single platform to
-              run customer interactions end to end — from automated self-service
-              to human-assisted support and system-level integrations.
+              With NenaCall, your teams focus less on operational friction and
+              more on meaningful customer conversations.
             </p>
           </div>
         </div>
@@ -1530,13 +1352,12 @@
           <h2
             class="font-inter text-xl sm:text-2xl md:text-[2.5rem] lg:text-[42px] font-bold leading-tight md:leading-[40px] text-primary-blue mb-3 md:mb-5 flex items-center flex-none order-0 self-stretch flex-grow-0"
           >
-            Get Started With NenaSasa
+            Get Started With NenaCall
           </h2>
           <p class="text-sm md:text-paragraph text-text-body mb-4 md:mb-6">
-            Build, manage, and scale customer engagement from one platform.
-            Adopt a unified engagement platform that brings voice, messaging,
-            automation, and developer capabilities together—designed to support
-            your operations as they scale.
+            Streamline your team’s voice and chat with NenaCall. Download the
+            lightweight app to eliminate friction and start delivering faster,
+            better customer experiences today. 
           </p>
           <div class="flex flex-col sm:flex-col gap-4 md:justify-start">
             <img
@@ -1572,8 +1393,8 @@
         >
           <div class="text-center sm:text-left">
             <img
-              src="images/nena-sasa-background-white-20.png"
-              alt="Logo"
+              src="images/NenacallLogo.png"
+              alt="NenaCall Logo"
               class="h-8 md:h-10 mb-3 md:mb-5 mx-auto sm:mx-0"
             />
             <p class="opacity-80 text-xs md:text-paragraph">
@@ -1663,10 +1484,18 @@
             </h4>
             <ul>
               <li class="mb-2 md:mb-3 text-[#a9bcea] text-xs md:text-paragraph">
-                Kenya: +25470000000
+                <a
+                  href="tel:+25470000000"
+                  class="hover:text-white transition-colors"
+                  >Kenya: +25470000000</a
+                >
               </li>
               <li class="mb-2 md:mb-3 text-[#a9bcea] text-xs md:text-paragraph">
-                Email: info@nenasasa.com
+                <a
+                  href="mailto:info@nenasasa.com"
+                  class="hover:text-white transition-colors"
+                  >Email: info@nenasasa.com</a
+                >
               </li>
             </ul>
           </div>
