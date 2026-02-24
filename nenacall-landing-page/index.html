@@ -554,6 +554,38 @@
           padding-right: 1rem;
         }
       }
+
+      /* Logo carousel (mobile) */
+      .logo-carousel {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .logo-carousel-track {
+        display: flex;
+        width: max-content;
+        animation: logoCarouselScroll 40s linear infinite;
+      }
+
+      .logo-carousel-item {
+        flex: 0 0 auto;
+        margin-right: 1rem;
+      }
+
+      @keyframes logoCarouselScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .logo-carousel-track {
+          animation: none;
+        }
+      }
     </style>
   </head>
   <body style="background-color: #f3f3f3">
@@ -907,7 +939,7 @@
             CALL CENTER
           </span>
           <h1
-            class="hero-title text-3xl sm:text-4xl md:text-4xl lg:text-[57px] xl:text-[57px] font-extrabold leading-tight md:leading-[1.15] mb-4 md:mb-5 font-inter text-white"
+            class="hero-title !text-4xl md:text-4xl lg:text-[57px] xl:text-[57px] font-extrabold !leading-[1.2] md:leading-[1.15] mb-4 md:mb-5 font-inter text-white"
           >
             Lightweight Voice &amp; Chat Tools Built for Frontline Teams
           </h1>
@@ -917,7 +949,7 @@
             A Simple, Powerful Communication App for your agents
           </p>
           <p
-            class="hero-paragraph text-base opacity-90 leading-relaxed mb-6 md:mb-8 max-w-[90%] md:max-w-none"
+            class="hero-paragraph text-base opacity-90 leading-relaxed mb-6 hidden md:block md:mb-8 max-w-[90%] md:max-w-none"
           >
             Set NenaCall is a lightweight communication application designed for
             frontline teams to handle both voice and chat interactions
@@ -956,8 +988,172 @@
           Trusted Mini-App Among Many in NenaSasa Suite Apps
         </h2>
 
+        <!-- Mobile infinite logo carousel -->
+        <div class="md:hidden logo-carousel mt-2">
+          <div class="logo-carousel-track">
+            <!-- First sequence -->
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nenacall-logo-6-30.png"
+                  alt="NenaCall"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nenavoice-logo-20.png"
+                  alt="NenaVoice"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nena-sms-logo-10.png"
+                  alt="NenaSMS"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nena-chat-logo-10.png"
+                  alt="NenaChat"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nena-mail-logo-10.png"
+                  alt="NenaMail"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nena-sdk-logo-10.png"
+                  alt="NenaSDK"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nenabot-logo-11.png"
+                  alt="NenaBot"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+
+            <!-- Duplicate sequence for seamless loop -->
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nenacall-logo-6-30.png"
+                  alt="NenaCall"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nenavoice-logo-20.png"
+                  alt="NenaVoice"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nena-sms-logo-10.png"
+                  alt="NenaSMS"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nena-chat-logo-10.png"
+                  alt="NenaChat"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nena-mail-logo-10.png"
+                  alt="NenaMail"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nena-sdk-logo-10.png"
+                  alt="NenaSDK"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+            <div class="logo-carousel-item">
+              <div
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+              >
+                <img
+                  src="images/nenabot-logo-11.png"
+                  alt="NenaBot"
+                  class="h-6 md:h-[35px] w-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop / tablet grid -->
         <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-6 justify-items-center mx-auto"
+          class="hidden md:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-6 justify-items-center mx-auto"
         >
           <div
             class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
@@ -1137,7 +1333,7 @@
 
     <!-- HOW IT WORKS TOGETHER - Responsive -->
     <section
-      class="animate-on-scroll bg-[#282460] bg-how-it-works-pattern bg-cover bg-center py-8 pb-8 md:pt-[120px] md:pb-[120px] text-white rounded-b-[50px] md:rounded-b-[150px] h-[200vh] md:h-[120vh]"
+      class="animate-on-scroll bg-[#282460] bg-how-it-works-pattern bg-cover bg-center py-8 pb-8 md:pt-[120px] md:pb-[120px] text-white rounded-b-[50px] md:rounded-b-[150px] h-[1300px] md:h-[120vh]"
     >
       <div class="content-width mx-auto px-4 md:px-4">
         <div class="text-center mb-6 md:mb-[60px] px-2">
@@ -1339,7 +1535,7 @@
             </p>
           </div>
           <div
-            class="animate-on-scroll md:col-span-3 bg-white rounded-xl border border-blue-border shadow-lg p-5 md:p-6 hover-lift transition-all duration-300 text-left place-items-center"
+            class="animate-on-scroll md:col-span-3 bg-white rounded-xl border border-blue-border shadow-lg p-5 md:p-6 hover-lift transition-all duration-300 text-left place-items-left md:place-items-center"
           >
             <div
               class="w-12 h-12 md:w-14 md:h-14 mb-4 text-primary-blue"
