@@ -264,11 +264,15 @@
           visibility 0.2s ease,
           transform 0.2s ease;
       }
-      .nav-dropdown:hover .nav-dropdown-panel {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+
+      @media (min-width: 768px) {
+        .nav-dropdown:hover .nav-dropdown-panel {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
       }
+
       .nav-dropdown-panel::before {
         content: "";
         position: absolute;
@@ -301,12 +305,63 @@
         transition: transform 0.2s ease;
       }
 
-      .nav-dropdown > a:hover {
-        font-family: "Poppins";
-        font-style: normal;
-        /* font-weight: 700; */
-        font-size: 16px;
-        line-height: 20px;
+      /* Menu item styles (dropdown panel links) */
+      a.menuitem {
+        background-color: transparent;
+        text-decoration: none;
+        display: flex;
+        align-items: flex-start;
+        padding: 12px;
+        gap: 16px;
+        border-radius: 8px;
+        transition: all 0.25s ease-in-out;
+        will-change: transform, background, padding;
+      }
+
+      a.menuitem span {
+        color: black;
+      }
+
+      a.menuitem:hover span {
+        color: white;
+      }
+
+      a.menuitem:hover {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        background: linear-gradient(91.65deg, #d03683 0%, #ee7d1f 95.52%);
+      }
+
+      /* Responsive dropdown panels (mobile) */
+      @media (max-width: 768px) {
+        .nav-dropdown-panel {
+          position: static !important;
+          transform: none !important;
+          min-width: 100% !important;
+          margin-top: 0.5rem !important;
+          background: transparent !important;
+          border: none !important;
+          padding: 0 !important;
+        }
+
+        .nav-dropdown-panel .grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .nav-dropdown-panel h1 {
+          display: none !important;
+        }
+
+        a.menuitem {
+          padding: 8px !important;
+          background: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        a.menuitem span {
+          color: white !important;
+        }
       }
 
       /* Sticky navbar with hide/show on scroll */
@@ -323,7 +378,8 @@
       }
 
       .navbar.scrolled {
-        background-color: #2c0064;
+        background-color: rgba(44, 0, 100, 0.3);
+        backdrop-filter: blur(12px);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       }
 
@@ -410,9 +466,9 @@
       >
         <a href="#" class="h-10 flex-shrink-0">
           <img
-            src="assets/nena-sasa-background-white-21.png"
+            src="assets/DemoAppLogo.png"
             alt="NenaSasa Logo"
-            class="h-10"
+            class="h-12 w-auto"
           />
         </a>
         <!-- Desktop Sec 2: Nav and Actions -->
@@ -939,171 +995,245 @@
     </section>
 
     <!-- MINI APPS -->
-    <section class="py-[60px] px-5 text-center w-full animate-on-scroll">
-      <div class="w-full">
-        <h2 class="text-primary-blue font-semibold text-subtitle mb-10">
+    <section
+      class="py-10 md:py-[60px] px-4 text-center w-full animate-on-scroll"
+    >
+      <div class="w-full max-w-container mx-auto">
+        <h2
+          class="text-primary-blue font-semibold text-2xl md:text-subtitle mb-6 md:mb-10 px-2 sm:px-0"
+        >
           NenaSasa Mini-Apps
         </h2>
 
-        <div class="slider">
-          <div class="slide-track">
-            <!-- First set of cards -->
-            <div class="slide">
+        <!-- Mobile infinite logo carousel -->
+        <div class="md:hidden logo-carousel mt-2">
+          <div class="logo-carousel-track">
+            <!-- First sequence -->
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-0 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nenacall-logo-6-30.png"
                   alt="NenaCall"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nenavoice-logo-20.png"
                   alt="NenaVoice"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nena-sms-logo-10.png"
                   alt="NenaSMS"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nena-chat-logo-10.png"
                   alt="NenaChat"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nena-mail-logo-10.png"
                   alt="NenaMail"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nena-sdk-logo-10.png"
                   alt="NenaSDK"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nenabot-logo-11.png"
                   alt="NenaBot"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
 
-            <!-- Duplicate set for seamless loop -->
-            <div class="slide">
+            <!-- Duplicate sequence for seamless loop -->
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nenacall-logo-6-30.png"
                   alt="NenaCall"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nenavoice-logo-20.png"
                   alt="NenaVoice"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nena-sms-logo-10.png"
                   alt="NenaSMS"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nena-chat-logo-10.png"
                   alt="NenaChat"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nena-mail-logo-10.png"
                   alt="NenaMail"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nena-sdk-logo-10.png"
                   alt="NenaSDK"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
-            <div class="slide">
+            <div class="logo-carousel-item">
               <div
-                class="gradient-border-card bg-transparent rounded-lg px-[10px] py-[20px] flex items-center justify-center min-w-[140px] hover-lift cursor-pointer"
+                class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
               >
                 <img
                   src="assets/nenabot-logo-11.png"
                   alt="NenaBot"
-                  class="h-[35px] w-auto"
+                  class="h-6 md:h-[35px] w-auto"
                 />
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Desktop / tablet grid -->
+        <div
+          class="hidden md:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-6 justify-items-center mx-auto"
+        >
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="assets/nenacall-logo-6-30.png"
+              alt="NenaCall"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="assets/nenavoice-logo-20.png"
+              alt="NenaVoice"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="assets/nena-sms-logo-10.png"
+              alt="NenaSMS"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="assets/nena-chat-logo-10.png"
+              alt="NenaChat"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="assets/nena-mail-logo-10.png"
+              alt="NenaMail"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer"
+          >
+            <img
+              src="assets/nena-sdk-logo-10.png"
+              alt="NenaSDK"
+              class="h-6 md:h-[35px] w-auto"
+            />
+          </div>
+          <div
+            class="gradient-border-card bg-white rounded-lg px-4 py-5 flex items-center justify-center w-full max-w-[140px] hover-lift cursor-pointer sm:col-start-2 md:col-start-auto"
+          >
+            <img
+              src="assets/nenabot-logo-11.png"
+              alt="NenaBot"
+              class="h-6 md:h-[35px] w-auto"
+            />
           </div>
         </div>
       </div>
