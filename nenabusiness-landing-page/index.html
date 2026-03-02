@@ -365,10 +365,6 @@
       }
 
       a.menuitem:hover {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
         background: linear-gradient(91.65deg, #d03683 0%, #ee7d1f 95.52%);
       }
 
@@ -629,7 +625,7 @@
                 </svg>
               </a>
               <div
-                class="nav-dropdown-panel absolute -translate-x-1/2 top-full mt-2.5 z-50 min-w-[490px] bg-white border border-[#B7B7B7] rounded-lg p-4"
+                class="nav-dropdown-panel absolute -translate-x-1/2 top-full mt-2.5 z-50 min-w-[640px] bg-white border border-[#B7B7B7] rounded-lg p-4"
                 role="menu"
               >
                 <h1
@@ -638,9 +634,14 @@
                 >
                   Products
                 </h1>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-3 gap-4">
                   <!-- Product items -->
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="images/nenacallDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Call</span>
                       <span class="text-xs block"
@@ -649,6 +650,11 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="images/nenavoiceDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Voice</span>
                       <span class="text-xs block"
@@ -657,6 +663,11 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="images/nenachatDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Chat</span>
                       <span class="text-xs block"
@@ -665,6 +676,11 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="images/nenaSDKDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena SDK</span>
                       <span class="text-xs block"
@@ -673,12 +689,22 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="images/nenasmsDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena SMS</span>
                       <span class="text-xs block">Reliable SMS at Scale</span>
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="images/nenabotDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Bot</span>
                       <span class="text-xs block">AI-Powered Automation</span>
@@ -719,6 +745,11 @@
                 </h1>
                 <div class="grid grid-cols-2 gap-4">
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="images/nenafinaceDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Finance</span>
                       <span class="text-xs block"
@@ -727,6 +758,11 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="images/nenainsuranceDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Insurance</span>
                       <span class="text-xs block"
@@ -734,12 +770,21 @@
                       >
                     </div>
                   </a>
-                  <a href="#" class="menuitem text-center" role="menuitem">
-                    <div class="min-w-0">
-                      <span class="font-semibold block">Nena Business</span>
-                      <span class="text-xs block">For Modern Businesses</span>
-                    </div>
-                  </a>
+                  <div
+                    class="md:col-span-2 place-items-left md:place-items-center"
+                  >
+                    <a href="#" class="menuitem" role="menuitem">
+                      <img
+                        src="images/nenabusinessDropdownIcon.png"
+                        alt="Nena Call icon"
+                        class="h-12 w-12 object-contain"
+                      />
+                      <div class="min-w-0">
+                        <span class="font-semibold block">Nena Business</span>
+                        <span class="text-xs block">For Modern Businesses</span>
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
