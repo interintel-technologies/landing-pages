@@ -425,10 +425,6 @@
       }
 
       a.menuitem:hover {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
         background: linear-gradient(91.65deg, #d03683 0%, #ee7d1f 95.52%);
       }
 
@@ -568,7 +564,7 @@
         }
       }
 
-      /* Responsive images */
+      /* Responsive assets */
       img {
         max-width: 100%;
         height: auto;
@@ -639,7 +635,7 @@
     <!-- NAVBAR (unchanged structure but with responsive classes) -->
     <header class="navbar py-4 md:py-5">
       <div
-        class="max-w-container mx-auto px-4 md:px-5 flex justify-between items-center"
+        class="w-full min-w-0 max-w-[1400px] md:w-[80vw] md:min-w-[1200px] mx-auto px-4 md:px-8 flex justify-between items-center"
       >
         <a href="#" class="h-8 md:h-10 flex-shrink-0">
           <img
@@ -677,7 +673,7 @@
                 </svg>
               </a>
               <div
-                class="nav-dropdown-panel absolute -translate-x-1/2 top-full z-50 min-w-[490px] bg-white border border-[#B7B7B7] rounded-lg p-4 mt-2.5"
+                class="nav-dropdown-panel absolute -translate-x-1/2 top-full mt-2.5 z-50 min-w-[640px] bg-white border border-[#B7B7B7] rounded-lg p-4"
                 role="menu"
               >
                 <h1
@@ -686,9 +682,14 @@
                 >
                   Products
                 </h1>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-3 gap-4">
                   <!-- Product items -->
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="assets/nenacallDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Call</span>
                       <span class="text-xs block"
@@ -697,6 +698,11 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="assets/nenavoiceDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Voice</span>
                       <span class="text-xs block"
@@ -705,6 +711,11 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="assets/nenachatDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Chat</span>
                       <span class="text-xs block"
@@ -713,6 +724,11 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="assets/nenaSDKDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena SDK</span>
                       <span class="text-xs block"
@@ -721,12 +737,22 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="assets/nenasmsDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena SMS</span>
                       <span class="text-xs block">Reliable SMS at Scale</span>
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="assets/nenabotDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Bot</span>
                       <span class="text-xs block">AI-Powered Automation</span>
@@ -756,7 +782,7 @@
                 </svg>
               </a>
               <div
-                class="nav-dropdown-panel absolute -translate-x-1/2 top-full z-50 min-w-[490px] bg-white border border-[#B7B7B7] rounded-lg p-4 mt-2.5"
+                class="nav-dropdown-panel absolute -translate-x-1/2 top-full mt-2.5 z-50 min-w-[490px] bg-white border border-[#B7B7B7] rounded-lg p-4"
                 role="menu"
               >
                 <h1
@@ -767,6 +793,11 @@
                 </h1>
                 <div class="grid grid-cols-2 gap-4">
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="assets/nenafinaceDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Finance</span>
                       <span class="text-xs block"
@@ -775,6 +806,11 @@
                     </div>
                   </a>
                   <a href="#" class="menuitem" role="menuitem">
+                    <img
+                      src="assets/nenainsuranceDropdownIcon.png"
+                      alt="Nena Call icon"
+                      class="h-12 w-12 object-contain"
+                    />
                     <div class="min-w-0">
                       <span class="font-semibold block">Nena Insurance</span>
                       <span class="text-xs block"
@@ -782,12 +818,21 @@
                       >
                     </div>
                   </a>
-                  <a href="#" class="menuitem text-center" role="menuitem">
-                    <div class="min-w-0">
-                      <span class="font-semibold block">Nena Business</span>
-                      <span class="text-xs block">For Modern Businesses</span>
-                    </div>
-                  </a>
+                  <div
+                    class="md:col-span-2 place-items-left md:place-items-center"
+                  >
+                    <a href="#" class="menuitem" role="menuitem">
+                      <img
+                        src="assets/nenabusinessDropdownIcon.png"
+                        alt="Nena Call icon"
+                        class="h-12 w-12 object-contain"
+                      />
+                      <div class="min-w-0">
+                        <span class="font-semibold block">Nena Business</span>
+                        <span class="text-xs block">For Modern Businesses</span>
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -801,11 +846,11 @@
           </nav>
 
           <div class="flex items-center gap-4 lg:gap-6">
-            <a href="https://nenasasa.com/#/1/0" class="text-sm lg:text-base"
+            <a href="https://nenacall.com/#/1/0" class="text-sm lg:text-base"
               >Log in</a
             >
             <a
-              href="https://nenasasa.com/#/2/0/"
+              href="https://nenacall.com/#/2/0/"
               class="bg-gradient-hero text-white px-4 lg:px-6 py-1.5 lg:py-2 rounded font-medium text-sm lg:text-base btn-animate"
               >Sign Up</a
             >
@@ -1436,7 +1481,8 @@
             <img
               src="assets/TalkingSimulation.png"
               alt="NenaCall Simulation"
-              class="feature-image-shadow rounded-lg"
+              class="feature-image-shadow rounded-lg w-full h-auto object-contain max-h-96"
+              loading="lazy"
             />
           </div>
           <div class="order-1 md:order-2">
