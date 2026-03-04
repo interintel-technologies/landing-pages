@@ -385,11 +385,13 @@
         section.bg-\[\#2c0064\] {
           padding-top: 60px !important;
           padding-bottom: 60px !important;
+          height: auto !important;
+          min-height: 560px !important;
         }
 
         .hero-image {
           position: relative !important;
-          bottom: -80px !important;
+          bottom: -40px !important;
           max-width: 80% !important;
           margin: 0 auto !important;
           left: 50% !important;
@@ -547,6 +549,26 @@
         .content-width.mx-auto {
           padding-left: 1rem;
           padding-right: 1rem;
+        }
+      }
+
+      /* Long stacked sections on small screens */
+      @media (max-width: 768px) {
+        section.bg-\[\#282460\] {
+          height: auto !important;
+          min-height: 800px !important;
+          padding-top: 80px !important;
+          padding-bottom: 250px !important;
+        }
+
+        .business-impact-wrapper {
+          margin-top: -200px !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .business-impact-wrapper {
+          margin-top: -160px !important;
         }
       }
 
@@ -1385,7 +1407,7 @@
                     Nena Call
                   </h4>
                   <p
-                    class="font-inter text-sm md:text-base leading-[24px] text-text-body mt-0.5"
+                    class="font-inter text-base leading-[24px] text-text-body mt-0.5"
                   >
                     Powers SACCO support lines, loan follow-ups, arrears
                     reminders, and member assistance.
