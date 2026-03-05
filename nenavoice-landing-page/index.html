@@ -385,6 +385,8 @@
         section.bg-\[\#2c0064\] {
           padding-top: 60px !important;
           padding-bottom: 60px !important;
+          height: auto !important;
+          min-height: 560px !important;
         }
 
         .hero-image {
@@ -547,6 +549,26 @@
         .content-width.mx-auto {
           padding-left: 1rem;
           padding-right: 1rem;
+        }
+      }
+
+      /* Long stacked sections on small screens */
+      @media (max-width: 768px) {
+        section.bg-\[\#282460\] {
+          height: auto !important;
+          min-height: 800px !important;
+          padding-top: 80px !important;
+          padding-bottom: 250px !important;
+        }
+
+        .business-impact-wrapper {
+          margin-top: -200px !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .business-impact-wrapper {
+          margin-top: -160px !important;
         }
       }
 
@@ -1289,7 +1311,7 @@
             <img
               src="images/WhySecImg.png"
               alt="WhySecImg?"
-              class="w-[450px] h-auto max-w-md mx-auto md:max-w-full"
+              class="w-full md:w-[450px] h-auto max-w-md mx-auto md:max-w-full"
             />
           </div>
           <div class="text-center md:text-left">
